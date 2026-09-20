@@ -1,9 +1,6 @@
 # Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-.pytest_cache/
-.ruff_cache/
 .venv/
 venv/
 
@@ -21,10 +18,12 @@ data/raw/*
 !data/raw/README.md
 
 # Generated outputs
-results/
+results/*
+!results/.gitkeep
+!results/README.md
 checkpoint_*.csv
 checkpoint_*.json
 
-# Local environment
+# Local environment and logs
 .env
 *.log
