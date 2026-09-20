@@ -1,9 +1,15 @@
-# Local input data
+# Local research inputs
 
-Place the released study artifacts in this directory before running the audit:
+Place the released study artifacts in this directory before running the notebooks:
 
-- `yeast9.0.xml`
-- `Yeast9_curated.xml`
-- `mmc3.xlsx`
+```text
+yeast9.0.xml
+Yeast9_curated.xml
+mmc3.xlsx
+```
 
-These files are intentionally not tracked by this repository. The audit records SHA-256 hashes in `results/manifest.json`, so every local run remains traceable to the exact input files used.
+These files are intentionally excluded from Git.
+
+The notebooks record SHA-256 hashes of the local files so each analysis can be tied to the exact artifacts used on the local computer.
+
+Do not rename the files unless the notebook configuration is updated accordingly.

@@ -2,24 +2,43 @@
 
 ## Purpose
 
-This project is a reproducibility audit of Han et al. (2024), not a tutorial reimplementation.
+This repository is a scientific reproducibility audit of Han et al. (2024). It is intentionally notebook-first so that code, outputs, interpretation, and provenance remain visible in one research record.
+
+## Analysis layers
+
+The project keeps four layers separate:
+
+1. **Model validation**  
+   Confirm input identity, model dimensions, objective, solver status, wild-type growth, and viability threshold.
+
+2. **Auxotrophy benchmark reproduction**  
+   Reproduce the 147 gene-compound phenotype benchmark with isolated simulations.
+
+3. **Structural curation audit**  
+   Compare reaction bounds, GPR rules, added reactions, and selected stoichiometric edits between the released original and curated SBML models.
+
+4. **Paper/artifact discrepancy analysis**  
+   Compare paper claims with released models, released MATLAB code, and the COBRApy reproduction without treating any mismatch as a publication error until implementation and solver effects have been excluded.
 
 ## Methodological decisions
 
 - The published method is treated separately from the authors' released MATLAB scripts.
-- The primary benchmark uses the released Yeast9 SBML models and Dataset 2.
-- Each gene-compound record is isolated from previous records in strict `reload` mode.
-- Solver failures are never converted silently into biological zero-growth phenotypes.
+- The primary phenotype benchmark uses the released Yeast9 SBML models and Dataset 2.
+- Each gene-compound record is isolated from previous records in the reference run.
+- Solver failures are not converted silently into biological zero-growth phenotypes.
 - Conditional-medium records are parsed into rescue nutrients and background supplements.
-- Input files and protocol settings are fingerprinted for provenance and checkpoint safety.
+- Input files are fingerprinted with SHA-256.
+- Long runs use local checkpoints and can be resumed.
+- Original and curated results are joined by stable pair identifiers, never by row position.
 
-## Known issues identified during development
+## Known development issue
 
-1. A shared COBRApy model object produced state-dependent behavior in exploratory batch runs. The reference implementation therefore uses strict per-record isolation.
-2. Early code used positional spreadsheet columns and positional DataFrame alignment. The production implementation uses named columns and stable `pair_id` joins.
-3. The paper reports MATLAB + COBRA Toolbox + Gurobi, while this repository defaults to COBRApy + GLPK. Solver sensitivity must be evaluated before assigning discrepancies to the publication.
-4. The article, released curated SBML, and released MATLAB curation code contain artifact-level differences that should be audited independently of phenotype benchmarking.
+A shared COBRApy model object produced state-dependent behavior during exploratory batch runs. A THI6 phenotype differed between a shared-state batch and a fresh-model run. The reference workflow therefore performs pair-isolated simulations.
+
+## Paper implementation caveat
+
+The paper reports MATLAB + COBRA Toolbox + Gurobi. The local reference environment currently uses COBRApy + GLPK. Solver sensitivity must be considered before assigning residual numerical differences to the released study artifacts.
 
 ## Interpretation rule
 
-Do not call a numerical mismatch a paper error until model QC, dataset parsing, solver status, isolation, and solver sensitivity have all been checked.
+Do not classify a numerical mismatch as a paper error until model QC, dataset parsing, solver status, pair isolation, and solver sensitivity have been checked.
