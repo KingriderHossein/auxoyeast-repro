@@ -24,7 +24,7 @@ The project keeps four layers separate:
 
 - The published method is treated separately from the authors' released MATLAB scripts.
 - The primary phenotype benchmark uses the released Yeast9 SBML models and Dataset 2.
-- Each gene-compound record is isolated from previous records in the reference run.
+- Each gene-compound record is isolated from previous records by copying a pristine model loaded once from SBML.
 - Solver failures are not converted silently into biological zero-growth phenotypes.
 - Conditional-medium records are parsed into rescue nutrients and background supplements.
 - Input files are fingerprinted with SHA-256.
@@ -42,3 +42,8 @@ The paper reports MATLAB + COBRA Toolbox + Gurobi. The local reference environme
 ## Interpretation rule
 
 Do not classify a numerical mismatch as a paper error until model QC, dataset parsing, solver status, pair isolation, and solver sensitivity have been checked.
+
+
+## Runtime stability note
+
+Repeatedly reparsing the same large SBML file inside the 147-pair loop caused a reproducible stall late in the original-model benchmark. The reference workflow now loads one pristine model object and creates a fresh model copy for every pair. This preserves biological state isolation while avoiding repeated SBML parser initialization.
