@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auxoyeast-repro"
+version = "0.4.0"
+description = "Reproducibility audit of auxotrophy-based curation in Yeast9 using COBRApy"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = {text = "MIT"}
+authors = [{name = "Hossein Shahsavari"}]
+dependencies = [
+  "cobra==0.30.0",
+  "numpy>=2.5,<3",
+  "pandas>=3.0,<4",
+  "openpyxl>=3.1,<4",
+  "python-libsbml>=5.21,<6",
+  "swiglpk>=5,<6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ipykernel>=6",
+  "jupyterlab>=4",
+  "pytest>=8",
+  "ruff>=0.12",
+  "pre-commit>=4",
+]
+
+[project.scripts]
+auxoyeast-audit = "auxoyeast_repro.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
