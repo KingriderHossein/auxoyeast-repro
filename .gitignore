@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local input artifacts
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+
+# Generated outputs
+results/
+checkpoint_*.csv
+checkpoint_*.json
+
+# Local environment
+.env
+*.log
