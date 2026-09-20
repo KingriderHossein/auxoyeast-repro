@@ -1,0 +1,27 @@
+{
+  "workflow_version": "0.5.0",
+  "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "c:\\Users\\pc\\anaconda3\\envs\\auxoyeast-repro\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cobra": "0.30.0",
+  "solver": "glpk",
+  "viability_fraction": 0.01,
+  "viability_threshold": 0.0008590751899388004,
+  "files": [
+    {
+      "file": "yeast9.0.xml",
+      "bytes": 11776690,
+      "sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5"
+    },
+    {
+      "file": "Yeast9_curated.xml",
+      "bytes": 11185345,
+      "sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af"
+    },
+    {
+      "file": "mmc3.xlsx",
+      "bytes": 28226,
+      "sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab"
+    }
+  ]
+}

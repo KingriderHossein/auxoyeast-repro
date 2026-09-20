@@ -24,8 +24,19 @@ data/raw/*
 results/*
 !results/.gitkeep
 !results/README.md
-checkpoint_*.csv
-checkpoint_*.json
+
+# Reproducibility outputs
+!results/01_input_manifest.csv
+!results/01_model_qc.csv
+!results/01_run_manifest.json
+!results/02_Yeast9_pair_results.csv
+!results/02_Yeast9_curated_pair_results.csv
+!results/02_benchmark_summary.csv
+!results/02_pairwise_comparison.csv
+
+# Local checkpoints
+results/*checkpoint*.csv
+results/*checkpoint*.json
 
 # Local environment and logs
 .env

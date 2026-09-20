@@ -1,0 +1,3 @@
+model,n,correct,type_I,type_II,solver_error,input_error,accuracy
+Yeast9,147,92,38,17,0,0,0.6258503401360545
+Yeast9_curated,147,114,29,4,0,0,0.7755102040816326
