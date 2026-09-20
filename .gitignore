@@ -16,6 +16,9 @@ Thumbs.db
 data/raw/*
 !data/raw/.gitkeep
 !data/raw/README.md
+!data/raw/yeast9.0.xml
+!data/raw/Yeast9_curated.xml
+!data/raw/mmc3.xlsx
 
 # Generated outputs
 results/*
