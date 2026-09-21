@@ -461,7 +461,7 @@ The primary reproduction preserves all 147 rows to match the published benchmark
 **Category:** Implementation / solver-state isolation  
 **Status:** Investigating  
 **Affected stage:** Auxotrophy benchmark  
-**GitHub issue:** pending
+**GitHub issue:** #12
 
 ### Evidence
 
