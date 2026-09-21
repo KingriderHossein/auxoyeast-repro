@@ -507,8 +507,8 @@ This is a local implementation/state-management issue. It does not provide evide
 ## R-016 — COBRApy JSON round-trip is not phenotype-equivalent to the released SBML
 
 **Category:** Serialization / model artifact  
-**Status:** Investigating  
-**Affected stage:** Candidate per-pair isolation strategy  
+**Status:** Documented; not a current benchmark blocker  
+**Affected stage:** Rejected candidate per-pair isolation strategy  
 **GitHub issue:** #14
 
 ### Evidence
@@ -544,17 +544,7 @@ Reject JSON round-trip as a reference benchmark isolation strategy until the `YP
 
 ### Next action
 
-Perform a focused structural and solver-level comparison between fresh SBML and fresh JSON for:
-
-- rescue reaction `r_1757`
-- knockout reactions `r_0103` and `r_0104`
-- all metabolites participating in `r_1757`
-- WT growth before knockout
-- growth after opening `r_1757` without knockout
-- model objective
-- relevant metabolite constraints / boundary attributes
-
-If the discrepancy comes from information not representable in the JSON model format, move to process-level isolation with fresh SBML loading in a new Python process for each phenotype.
+JSON-specific diagnosis is deferred because the benchmark no longer depends on JSON reconstruction. The reference candidate is now process-level isolation: one fresh Python process, one fresh SBML load, and one phenotype simulation per process. JSON can be revisited later if the serialization mismatch itself becomes scientifically relevant.
 
 ### Scientific interpretation
 
@@ -563,7 +553,7 @@ This is a local serialization/reconstruction issue. It is not evidence of an err
 
 ## Current blocking issue
 
-The main blockers are **R-006**, **R-015**, and **R-016**. No new headline benchmark result should be treated as final until a genuinely fresh and validated per-pair model/solver isolation strategy is established and used across the full dataset.
+The main blockers are **R-006** and **R-015**. R-016 remains documented but is no longer a benchmark blocker because JSON reconstruction has been rejected as a reference strategy. No new headline benchmark result should be treated as final until process-level fresh-SBML isolation is validated and used across the full dataset.
 
 ## Update rule
 
