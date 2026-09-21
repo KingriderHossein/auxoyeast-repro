@@ -176,7 +176,7 @@ Differences between these protocols must not be collapsed into a single reproduc
 ## R-006 — Model isolation can produce inconsistent knockout/rescue phenotypes
 
 **Category:** Implementation / numerical state  
-**Status:** Investigating  
+**Status:** Mitigated for the reference candidate; full rerun pending  
 **Affected stage:** Curated-model auxotrophy benchmark  
 **Primary affected records:** Excel row 96, `YPL214C`, thiamine; context-sequence check also affected Excel row 123, `YPL028W`, ergosterol  
 **GitHub issue:** #8
@@ -216,15 +216,30 @@ This did **not** reproduce fresh-load behavior for all cases:
 
 The `YPL028W` result shows that sequential context use can retain or produce state inconsistent with a freshly reconstructed model even when the Python-level context exits normally.
 
+### Fresh-process validation
+
+A six-case diagnostic was run with one fresh Python process per phenotype. Each worker loaded the curated SBML once, simulated one phenotype, returned one result, and exited. All six process IDs were different.
+
+The process-isolated results matched the independently observed fresh-SBML behavior:
+
+- `YGR204W`: correct; knockout approximately zero; rescue approximately `0.087317`
+- `YGR144W`: Type I; knockout approximately `0.08583537`
+- `YPL214C`: correct; knockout `0`; rescue approximately `0.08583537`
+- `YPL028W`: correct; knockout `0`; ergosterol rescue approximately `0.08846131`
+- `YOR303W`: Type I; knockout approximately `0.08638002`
+- `YJR109C`: Type I; knockout approximately `0.08638002`
+
+This validates process-level fresh-SBML isolation as the current reference candidate on the difficult diagnostic set.
+
 ### Impact
 
 Both the `pristine_copy` and sequential `model_context` isolation strategies are unsuitable as reference methods until their state behavior is understood.
 
-The current `114/147` curated benchmark remains provisional. No headline benchmark count should be treated as final while this issue is open.
+The current `114/147` curated benchmark remains provisional because it was produced with `Model.copy()`. The six-case process-isolation diagnostic has passed, but no headline benchmark count should be treated as final until the full 147-pair process-isolated rerun is complete for both models.
 
 ### Next action
 
-Test a reconstruction-based isolation strategy that avoids both solver deepcopy and repeated SBML parsing:
+Rerun Notebook 02 using process-level fresh-SBML isolation for all 147 phenotype records in both models. The previous reconstruction-based strategy has been rejected.
 
 1. Load the released SBML once.
 2. Serialize the pristine COBRA model once with `cobra.io.to_json()`.
@@ -459,7 +474,7 @@ The primary reproduction preserves all 147 rows to match the published benchmark
 ## R-015 — Sequential `with model:` contexts do not provide reliable pair isolation
 
 **Category:** Implementation / solver-state isolation  
-**Status:** Investigating  
+**Status:** Documented; process-level workaround validated on six cases  
 **Affected stage:** Auxotrophy benchmark  
 **GitHub issue:** #12
 
@@ -490,13 +505,11 @@ Together with R-006, this means both tested in-process reuse strategies are unsa
 
 Do not rerun the reference 147-pair benchmark with sequential model contexts.
 
-The next isolation strategy must construct a genuinely fresh COBRApy model/solver state for each pair without repeatedly invoking libSBML in one long-lived process.
+The validated reference candidate is now one fresh Python process per phenotype. Each process loads the released SBML once, performs one simulation, returns one result, and exits.
 
 ### Next action
 
-Evaluate a fresh-deserialization strategy, preferably a validated COBRApy JSON round-trip generated from the released SBML, and compare it pair-by-pair against fresh SBML loads on the diagnostic cases before running the complete benchmark.
-
-If JSON reconstruction is not equivalent, use process-level isolation so each pair reads SBML in a fresh Python process.
+Run the complete 147-pair benchmark for both Yeast9 and the curated model using process-level fresh-SBML isolation. Keep the older `pristine_copy` results as provenance only, not as reference outputs.
 
 ### Scientific interpretation
 
@@ -553,7 +566,7 @@ This is a local serialization/reconstruction issue. It is not evidence of an err
 
 ## Current blocking issue
 
-The main blockers are **R-006** and **R-015**. R-016 remains documented but is no longer a benchmark blocker because JSON reconstruction has been rejected as a reference strategy. No new headline benchmark result should be treated as final until process-level fresh-SBML isolation is validated and used across the full dataset.
+The six-case fresh-process diagnostic has passed. The remaining benchmark blocker is completion of the full 147-pair process-isolated rerun for both models. R-006, R-015, and R-016 remain documented as reproducibility history, but the current reference candidate is process-level fresh-SBML isolation.
 
 ## Update rule
 
