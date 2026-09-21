@@ -509,7 +509,7 @@ This is a local implementation/state-management issue. It does not provide evide
 **Category:** Serialization / model artifact  
 **Status:** Investigating  
 **Affected stage:** Candidate per-pair isolation strategy  
-**GitHub issue:** pending
+**GitHub issue:** #14
 
 ### Evidence
 
