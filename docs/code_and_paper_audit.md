@@ -2,6 +2,9 @@
 
 ## Purpose
 
+The central issue history for reproducibility-relevant problems is maintained in [`reproducibility_log.md`](reproducibility_log.md). Open scientific or implementation problems that can change benchmark results should be recorded there before downstream conclusions are treated as final.
+
+
 This repository is a scientific reproducibility audit of Han et al. (2024). It is intentionally notebook-first so that code, outputs, interpretation, and provenance remain visible in one research record.
 
 ## Analysis layers
