@@ -131,4 +131,4 @@ Han S, Wu K, Wang Y, Li F, Chen Y. *Auxotrophy-based curation improves the conse
 
 ## Version
 
-Notebook workflow version: **0.5.2**
+Notebook workflow version: **0.5.4**
