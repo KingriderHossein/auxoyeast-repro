@@ -173,17 +173,17 @@ Differences between these protocols must not be collapsed into a single reproduc
 
 ---
 
-## R-006 — `Model.copy()` produces an inconsistent YPL214C knockout phenotype
+## R-006 — Model isolation can produce inconsistent knockout/rescue phenotypes
 
 **Category:** Implementation / numerical state  
 **Status:** Investigating  
 **Affected stage:** Curated-model auxotrophy benchmark  
-**Primary affected record:** Excel row 96, `YPL214C`, thiamine  
+**Primary affected records:** Excel row 96, `YPL214C`, thiamine; context-sequence check also affected Excel row 123, `YPL028W`, ergosterol  
 **GitHub issue:** #8
 
 ### Evidence
 
-Using a freshly loaded curated SBML model:
+Using a freshly loaded curated SBML model for `YPL214C`:
 
 - associated reactions: `r_0556`, `r_1036`, `r_4753`
 - all three bounds become `(0, 0)` after gene knockout
@@ -200,26 +200,43 @@ Using `base_model.copy()`:
 
 Reassigning the copied model solver to GLPK does not remove the discrepancy.
 
-### Impact
-
-At least one current curated benchmark classification is not trustworthy under the `pristine_copy` isolation strategy.
-
-The current `114/147` curated result therefore remains provisional until all 147 pairs are validated under a safer isolation method.
-
-### Next action
-
-Test COBRApy model-context isolation:
+A second diagnostic reused one freshly loaded model with a COBRApy context for each test case:
 
 ```python
 with model:
     ...
 ```
 
-If context isolation reproduces fresh-load behavior, rerun the complete benchmark with that method. Otherwise use stricter fresh-process or fresh-load isolation.
+This did **not** reproduce fresh-load behavior for all cases:
+
+- `YPL214C`: knockout growth remained approximately `0.085835` instead of `0`
+- `YPL028W`: knockout growth was `0`, but ergosterol rescue became `0` instead of approximately `0.088461`
+- `YOR303W` and `YJR109C`: behavior remained stable and consistent with the released curated `r_0250` GPR
+- `YGR204W` and `YGR144W`: classifications remained consistent with fresh-load checks
+
+The `YPL028W` result shows that sequential context use can retain or produce state inconsistent with a freshly reconstructed model even when the Python-level context exits normally.
+
+### Impact
+
+Both the `pristine_copy` and sequential `model_context` isolation strategies are unsuitable as reference methods until their state behavior is understood.
+
+The current `114/147` curated benchmark remains provisional. No headline benchmark count should be treated as final while this issue is open.
+
+### Next action
+
+Test a reconstruction-based isolation strategy that avoids both solver deepcopy and repeated SBML parsing:
+
+1. Load the released SBML once.
+2. Serialize the pristine COBRA model once with `cobra.io.to_json()`.
+3. Reconstruct a new model for each phenotype with `cobra.io.from_json()`.
+4. Compare focused cases against independent fresh-SBML loads.
+5. If they agree, rerun all 147 pairs using JSON reconstruction and verify selected records again with fresh-SBML loads.
+
+COBRApy's JSON loader constructs a new `Model`, adds metabolites, genes, and reactions, and then rebuilds the objective. This makes it a useful candidate for fresh solver/model reconstruction without repeatedly invoking libSBML.
 
 ### Scientific interpretation
 
-This issue is currently an implementation artifact candidate, not evidence of an error in the paper or biological model.
+This issue is currently a local implementation/isolation problem. It is not evidence of an error in the article or in the biological curation until a stable reconstruction method establishes the reference phenotype results.
 
 ---
 
