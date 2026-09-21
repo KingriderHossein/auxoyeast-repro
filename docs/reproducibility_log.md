@@ -503,9 +503,67 @@ If JSON reconstruction is not equivalent, use process-level isolation so each pa
 This is a local implementation/state-management issue. It does not provide evidence about the correctness of the article or released biological model.
 
 
+
+## R-016 — COBRApy JSON round-trip is not phenotype-equivalent to the released SBML
+
+**Category:** Serialization / model artifact  
+**Status:** Investigating  
+**Affected stage:** Candidate per-pair isolation strategy  
+**GitHub issue:** pending
+
+### Evidence
+
+A fresh curated Yeast9 model loaded from SBML was saved with `save_json_model()` and reconstructed with `load_json_model()`. Six difficult phenotype cases were then compared using a fresh model instance for each case.
+
+Five cases matched fresh SBML behavior closely:
+
+- `YGR204W`
+- `YGR144W`
+- `YPL214C`
+- `YOR303W`
+- `YJR109C`
+
+However, `YPL028W` / ergosterol did not match:
+
+- fresh SBML: knockout growth = `0`, rescue growth approximately `0.088461`
+- fresh JSON: knockout growth = `0`, rescue growth = `0`
+
+### Impact
+
+A COBRApy JSON cache cannot currently be used as the reference fresh-model reconstruction method for the full 147-pair benchmark.
+
+The failure is phenotype-specific and would silently convert a rescued phenotype into Type II if JSON reconstruction were used without validation.
+
+### Technical note
+
+COBRApy JSON serialization stores the standard model structure (metabolites, reactions, genes, bounds, GPRs, objective coefficients, and selected metadata), but it does not guarantee preservation of every solver-level or SBML-specific state that may exist after SBML import.
+
+### Decision
+
+Reject JSON round-trip as a reference benchmark isolation strategy until the `YPL028W` discrepancy is explained.
+
+### Next action
+
+Perform a focused structural and solver-level comparison between fresh SBML and fresh JSON for:
+
+- rescue reaction `r_1757`
+- knockout reactions `r_0103` and `r_0104`
+- all metabolites participating in `r_1757`
+- WT growth before knockout
+- growth after opening `r_1757` without knockout
+- model objective
+- relevant metabolite constraints / boundary attributes
+
+If the discrepancy comes from information not representable in the JSON model format, move to process-level isolation with fresh SBML loading in a new Python process for each phenotype.
+
+### Scientific interpretation
+
+This is a local serialization/reconstruction issue. It is not evidence of an error in the paper or biological model.
+
+
 ## Current blocking issue
 
-The main blockers are **R-006** and **R-015**. No new headline benchmark result should be treated as final until a genuinely fresh and validated per-pair model/solver isolation strategy is established and used across the full dataset.
+The main blockers are **R-006**, **R-015**, and **R-016**. No new headline benchmark result should be treated as final until a genuinely fresh and validated per-pair model/solver isolation strategy is established and used across the full dataset.
 
 ## Update rule
 
