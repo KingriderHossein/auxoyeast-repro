@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this research repository, cite both this repository and the Han et al. study being reproduced."
 title: "AuxoYeast Reproducibility Audit"
 type: software
-version: 0.5.2
+version: 0.5.4
 authors:
   - family-names: Shahsavari
     given-names: Hossein
