@@ -178,7 +178,8 @@ Differences between these protocols must not be collapsed into a single reproduc
 **Category:** Implementation / numerical state  
 **Status:** Investigating  
 **Affected stage:** Curated-model auxotrophy benchmark  
-**Primary affected record:** Excel row 96, `YPL214C`, thiamine
+**Primary affected record:** Excel row 96, `YPL214C`, thiamine  
+**GitHub issue:** #8
 
 ### Evidence
 
@@ -343,7 +344,8 @@ This is a reproducibility limitation of the released artifact set. It does not e
 
 **Category:** Reproduction discrepancy  
 **Status:** Investigating  
-**Affected stage:** Headline benchmark
+**Affected stage:** Headline benchmark  
+**GitHub issue:** #9
 
 ### Evidence
 
