@@ -198,7 +198,7 @@ Using `base_model.copy()`:
 - rescue growth is approximately `0.08583542`
 - phenotype classification = Type I
 
-Reassigning the copied model solver to GLPK does not remove the discrepancy.
+Reassigning the copied model solver to GLPK does not remove the discrepancy. A later sequential `with model:` context test also reproduced the incorrect YPL214C knockout growth, so simple in-process context reuse is not a valid replacement strategy (see R-015).
 
 A second diagnostic reused one freshly loaded model with a COBRApy context for each test case:
 
@@ -455,9 +455,57 @@ The primary reproduction preserves all 147 rows to match the published benchmark
 
 ---
 
+
+## R-015 — Sequential `with model:` contexts do not provide reliable pair isolation
+
+**Category:** Implementation / solver-state isolation  
+**Status:** Investigating  
+**Affected stage:** Auxotrophy benchmark  
+**GitHub issue:** #12
+
+### Evidence
+
+A single freshly loaded curated model was reused across six diagnostic cases, with each phenotype wrapped in a separate COBRApy model context.
+
+Selected results:
+
+- `YGR204W`: knockout approximately zero; rescue approximately `0.087317` — consistent with fresh reload.
+- `YGR144W`: knockout approximately `0.08583537`; rescue approximately `0.085835` — consistent with fresh reload.
+- `YPL214C`: knockout approximately `0.08583537`; rescue approximately `0.085835` — inconsistent with fresh reload, where knockout growth is zero.
+- `YPL028W`: knockout zero; rescue zero — inconsistent with fresh reload, where ergosterol rescue is approximately `0.088461`.
+- `YOR303W` and `YJR109C`: both remain Type I and match fresh-load behavior.
+
+The `YPL028W` result is especially important because the rescue phenotype changed only after earlier contexts had been executed, demonstrating order-dependent contamination in the reused in-process model.
+
+### Impact
+
+COBRApy context management cannot currently be treated as sufficient scientific isolation for this benchmark workflow.
+
+Together with R-006, this means both tested in-process reuse strategies are unsafe as reference methods:
+
+- `base_model.copy()`
+- repeated `with model:` contexts on one model instance
+
+### Decision
+
+Do not rerun the reference 147-pair benchmark with sequential model contexts.
+
+The next isolation strategy must construct a genuinely fresh COBRApy model/solver state for each pair without repeatedly invoking libSBML in one long-lived process.
+
+### Next action
+
+Evaluate a fresh-deserialization strategy, preferably a validated COBRApy JSON round-trip generated from the released SBML, and compare it pair-by-pair against fresh SBML loads on the diagnostic cases before running the complete benchmark.
+
+If JSON reconstruction is not equivalent, use process-level isolation so each pair reads SBML in a fresh Python process.
+
+### Scientific interpretation
+
+This is a local implementation/state-management issue. It does not provide evidence about the correctness of the article or released biological model.
+
+
 ## Current blocking issue
 
-The main blocker is **R-006**. No new headline benchmark result should be treated as final until the model-isolation behavior is validated across the full dataset.
+The main blockers are **R-006** and **R-015**. No new headline benchmark result should be treated as final until a genuinely fresh and validated per-pair model/solver isolation strategy is established and used across the full dataset.
 
 ## Update rule
 
