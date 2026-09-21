@@ -50,3 +50,10 @@ Do not classify a numerical mismatch as a paper error until model QC, dataset pa
 ## Runtime stability note
 
 Repeatedly reparsing the same large SBML file inside the 147-pair loop caused a reproducible stall late in the original-model benchmark. The reference workflow now loads one pristine model object and creates a fresh model copy for every pair. This preserves biological state isolation while avoiding repeated SBML parser initialization.
+
+
+## Runtime diagnosis and final isolation strategy (v0.5.4)
+
+A reproducible timeout was isolated to the fresh-process SBML-loading path for the HEM12/heme record (excel:137). A direct diagnostic on an already loaded pristine Yeast9 model showed that model copying (~1 s), YDR047W knockout, and GLPK optimization (~0.04 s) complete normally, while the rescue ID `a_0001` is absent from original Yeast9. This excludes the biological knockout and GLPK solve as the source of the 180 s timeout.
+
+The reference benchmark therefore loads each SBML model once and creates an independent `model.copy()` for every gene-compound pair. The pristine base model is fingerprinted from objective direction, objective coefficients, all reaction bounds, and all gene functional states; the fingerprint is checked after every pair. A per-solver timeout remains enabled.
