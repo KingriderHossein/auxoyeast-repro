@@ -90,7 +90,7 @@ The notebook workflow follows these rules:
 
 - Parse released spreadsheet columns by name, not column position.
 - Use stable pair identifiers for comparisons.
-- Keep every gene-compound simulation independent by copying a pristine model object for each pair.
+- Keep every gene-compound simulation independent by reconstructing a fresh COBRA model from a validated in-memory-derived JSON template in a fresh Python process for each pair.
 - Do not convert solver failures into biological zero growth.
 - Preserve conditional-medium information explicitly.
 - Record input hashes, package versions, solver, and threshold.
@@ -131,4 +131,4 @@ Han S, Wu K, Wang Y, Li F, Chen Y. *Auxotrophy-based curation improves the conse
 
 ## Version
 
-Notebook workflow version: **0.5.4**
+Notebook workflow version: **0.5.5**
