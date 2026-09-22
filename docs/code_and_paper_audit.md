@@ -27,7 +27,7 @@ The project keeps four layers separate:
 
 - The published method is treated separately from the authors' released MATLAB scripts.
 - The primary phenotype benchmark uses the released Yeast9 SBML models and Dataset 2.
-- Each gene-compound record is isolated from previous records by copying a pristine model loaded once from SBML.
+- Each released SBML model is parsed once into a validated solver-independent COBRA JSON template. Each gene-compound record is then executed in a fresh Python process that reconstructs a new COBRA model and optimization backend from that JSON template.
 - Solver failures are not converted silently into biological zero-growth phenotypes.
 - Conditional-medium records are parsed into rescue nutrients and background supplements.
 - Input files are fingerprinted with SHA-256.
@@ -49,7 +49,7 @@ Do not classify a numerical mismatch as a paper error until model QC, dataset pa
 
 ## Runtime stability note
 
-Repeatedly reparsing the same large SBML file inside the 147-pair loop caused a reproducible stall late in the original-model benchmark. The reference workflow now loads one pristine model object and creates a fresh model copy for every pair. This preserves biological state isolation while avoiding repeated SBML parser initialization.
+Repeatedly reparsing the same large SBML file inside the 147-pair loop caused a reproducible stall late in the original-model benchmark. Subsequent copy-based and sequential-context approaches avoided that parser stall but were rejected after the curated THI6/YPL214C phenotype produced a viable knockout despite reaction and solver-variable bounds being visibly closed. The reference workflow therefore avoids repeated SBML parsing, model copying, and solver reuse.
 
 
 ## Runtime diagnosis and final isolation strategy (v0.5.4)
@@ -57,3 +57,18 @@ Repeatedly reparsing the same large SBML file inside the 147-pair loop caused a 
 A reproducible timeout was isolated to the fresh-process SBML-loading path for the HEM12/heme record (excel:137). A direct diagnostic on an already loaded pristine Yeast9 model showed that model copying (~1 s), YDR047W knockout, and GLPK optimization (~0.04 s) complete normally, while the rescue ID `a_0001` is absent from original Yeast9. This excludes the biological knockout and GLPK solve as the source of the 180 s timeout.
 
 The reference benchmark therefore loads each SBML model once and creates an independent `model.copy()` for every gene-compound pair. The pristine base model is fingerprinted from objective direction, objective coefficients, all reaction bounds, and all gene functional states; the fingerprint is checked after every pair. A per-solver timeout remains enabled.
+
+
+## Final isolation protocol (v0.5.5)
+
+The project deliberately stops the sequence of ad hoc isolation experiments here. The reference protocol is now fixed to a fresh-process JSON reconstruction design:
+
+1. Parse each released SBML file exactly once.
+2. Export the parsed COBRA network to a local JSON template.
+3. Reload the JSON template and validate model dimensions, objective, and wild-type growth against the source SBML.
+4. Validate the curated THI6/YPL214C knockout as a sentinel before any 147-pair batch run.
+5. For every gene-compound pair, launch a fresh Python process, load a new COBRA model from the validated JSON template, create a fresh solver backend, perform the knockout and supplementation simulation, emit one result, and terminate the process.
+
+This protocol is intended to remove both failure modes observed during development: repeated libSBML parser instability and solver-state inconsistencies introduced by model copying or sequential reuse.
+
+The previous v0.5.4 pristine-copy results are retained as diagnostic evidence, not as the reference benchmark. Residual GLPK time limits, if any, are recorded as solver sensitivity and are not silently converted into biological predictions.
