@@ -520,7 +520,7 @@ This is a local implementation/state-management issue. It does not provide evide
 ## R-016 — COBRApy JSON round-trip is not phenotype-equivalent to the released SBML
 
 **Category:** Serialization / model artifact  
-**Status:** Under re-evaluation; historical mismatch not reproduced in the current controlled environment  
+**Status:** Reproduced on clean merged-main validation panel; current JSON reference path is blocked  
 **Affected stage:** JSON/SBML equivalence and benchmark interpretation  
 **GitHub issue:** #14
 
@@ -561,23 +561,25 @@ Before accepting a full v0.5.5 benchmark as reference output, run a provenance-c
 
 ### Current re-evaluation
 
-On 2026-09-28, after restoring the environment to the repository constraint `pandas>=2.2,<3.0` with pandas 2.3.3, a direct fresh-model comparison was repeated with Python 3.12.14, COBRApy 0.30.0, libSBML 5.21.1, and GLPK.
+On 2026-09-28, after merging the provenance fix to `main` at commit `f0f63fee126d2657d17168bec2c588af4a3bbb4b`, a clean six-case validation panel was run with Python 3.12.14, COBRApy 0.30.0, pandas 2.3.3, libSBML 5.21.1, and GLPK. Fresh SBML loads were compared directly with fresh JSON reconstructions using the same knockout, background, and rescue semantics as the benchmark worker.
 
 For `YPL214C` / thiamine:
 - fresh SBML: knockout growth = `0`, rescue growth approximately `0.08583536804`
 - fresh JSON: knockout growth = `0`, rescue growth approximately `0.08583536804`
+- classification matched: `correct`
 
 For `YPL028W` / ergosterol:
-- fresh SBML: knockout growth = `0`, rescue growth = `0`
+- fresh SBML: knockout growth = `0`, rescue growth approximately `0.0884613140`
 - fresh JSON: knockout growth = `0`, rescue growth = `0`
+- classification changed from `correct` to `type_II`
 
-Dimensions, objective, knockout bounds, and solver status matched in both comparisons.
+The other four difficult cases retained the same phenotype classification between SBML and JSON. Small floating-point differences were observed in some growth values, but they did not alter classification.
 
-Therefore, the historical R-016 mismatch is **not reproduced in the current controlled environment**. This does not prove that R-016 was erroneous. The prior `0.088461` fresh-SBML rescue value remains part of the audit trail and its origin must be reconciled against historical environment/protocol state before R-016 can be closed.
+Therefore, the historical R-016 mismatch is **reproduced** in a clean current environment and remains a blocker for accepting the JSON-based v0.5.5 benchmark as a reference result.
 
 ### Scientific interpretation
 
-The current evidence no longer supports treating JSON serialization itself as the sole demonstrated cause of the historical `YPL028W` discrepancy. Environment, run state, or artifact provenance remain plausible contributors. No claim about the article or biological model follows from this unresolved implementation history.
+The current evidence demonstrates a phenotype-specific non-equivalence between the released SBML path and COBRApy JSON reconstruction for `YPL028W / ergosterol`. This is a local model-serialization/reconstruction problem until proven otherwise; it is not evidence of an error in the paper or the biological model.
 
 
 ## R-017 — Final benchmark artifacts were not bound to an exact run signature
@@ -633,7 +635,7 @@ R-017 is an artifact-provenance failure. It is not evidence about the biological
 
 ## Current blocking issue
 
-The immediate blocker is a provenance-clean regeneration of the benchmark after R-017 is fixed. R-016 is under re-evaluation because its historical SBML-versus-JSON mismatch was not reproduced in the current controlled environment. No headline benchmark count is authoritative until one complete run has internally consistent code, environment, checkpoint metadata, final-artifact metadata, and outputs.
+R-017 is fixed, but R-016 is now the immediate benchmark blocker: the clean validation panel reproduced a phenotype-changing SBML-versus-JSON mismatch for `YPL028W / ergosterol`. The current JSON-based reference path must not proceed to a headline 147-pair result until this discrepancy is resolved or the reference isolation strategy is changed. No headline benchmark count is authoritative yet.
 
 ## Update rule
 
