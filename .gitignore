@@ -33,6 +33,8 @@ results/*
 !results/02_Yeast9_curated_pair_results.csv
 !results/02_benchmark_summary.csv
 !results/02_pairwise_comparison.csv
+!results/02_Yeast9_pair_results.meta.json
+!results/02_Yeast9_curated_pair_results.meta.json
 
 # Local checkpoints
 results/*checkpoint*.csv
