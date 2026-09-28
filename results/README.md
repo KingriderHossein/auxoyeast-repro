@@ -1,15 +1,16 @@
-# Local results
+# Results and provenance
 
-Generated analysis outputs are written here by the notebooks and are intentionally excluded from Git.
+Most generated analysis outputs in this directory are local working artifacts and remain excluded from Git.
 
-Typical outputs include:
+A small allowlisted set of benchmark outputs may be versioned when they are intended to support a scientific result. Final pair-result CSVs are authoritative only when the matching provenance sidecar exists and validates against the current benchmark signature.
 
-- model QC tables
-- run manifests
-- benchmark checkpoints
-- pair-level phenotype results
-- original-versus-curated comparison tables
-- structural curation audit tables
-- final figures and summary tables
+For each final pair-result CSV, the workflow writes a sidecar:
 
-Keep the final results you intend to cite or present together with the corresponding notebook commit and input-file hashes.
+- `02_Yeast9_pair_results.meta.json`
+- `02_Yeast9_curated_pair_results.meta.json`
+
+Each sidecar records the exact benchmark signature and payload, workflow commit, completed-pair count, and SHA-256 of the final CSV. A missing or mismatched sidecar means the corresponding CSV must be treated as stale or unverifiable, not as a current scientific result.
+
+Checkpoint files remain local resumability artifacts. They are not substitutes for final provenance-bound outputs.
+
+Keep any result you intend to cite or present tied to the corresponding notebook commit, environment, input hashes, and final-artifact metadata.
