@@ -171,12 +171,37 @@ def main():
 
     ko_status, ko_growth = solve_growth(model)
 
+    # Build the rescue condition from a fresh model instance. Re-optimizing the
+    # same JSON-reconstructed model after changing rescue bounds can retain
+    # solver state that changes the YPL028W/ergosterol phenotype.
+    rescue_model = load_json_model(model_json)
+    rescue_model.solver = args.solver
+
+    try:
+        rescue_model.solver.configuration.timeout = args.solver_timeout
+    except Exception:
+        pass
+
+    for gene_id in args.gene:
+        rescue_model.genes.get_by_id(gene_id).knock_out()
+
+    for reaction_id in args.background:
+        resolved = resolve_reaction_id(
+            rescue_model,
+            reaction_id,
+            aliases,
+        )
+        if resolved is not None:
+            rescue_model.reactions.get_by_id(
+                resolved
+            ).lower_bound = args.uptake_lower_bound
+
     mapped_rescue = []
     missing_rescue = []
 
     for reaction_id in args.rescue:
         resolved = resolve_reaction_id(
-            model,
+            rescue_model,
             reaction_id,
             aliases,
         )
@@ -184,12 +209,12 @@ def main():
         if resolved is None:
             missing_rescue.append(reaction_id)
         else:
-            model.reactions.get_by_id(
+            rescue_model.reactions.get_by_id(
                 resolved
             ).lower_bound = args.uptake_lower_bound
             mapped_rescue.append(resolved)
 
-    rescue_status, rescue_growth = solve_growth(model)
+    rescue_status, rescue_growth = solve_growth(rescue_model)
 
     classification = classify_auxotrophy(
         ko_status,
@@ -208,6 +233,7 @@ def main():
         "model_json_sha256": sha256_file(model_json),
         "solver": args.solver,
         "solver_timeout_seconds": args.solver_timeout,
+        "condition_isolation": "fresh_model_per_condition",
         "threshold": args.threshold,
         "uptake_lower_bound": args.uptake_lower_bound,
         "genes": "+".join(args.gene),
