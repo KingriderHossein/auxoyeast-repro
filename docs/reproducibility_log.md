@@ -658,9 +658,61 @@ Land the provenance guard, then regenerate benchmark artifacts from a provenance
 R-017 is an artifact-provenance failure. It is not evidence about the biological correctness of Yeast9, the curated model, or the paper.
 
 
+## R-018 — Worker process timeout aborted the benchmark instead of being checkpointed
+
+**Category:** Solver/runtime robustness  
+**Status:** Fixed and targeted validation passed  
+**Affected stage:** Full 147-pair benchmark execution  
+**GitHub issue:** #25
+
+### Evidence
+
+In workflow v0.5.6, `run_fresh_json_pair()` converted `subprocess.TimeoutExpired` into `RuntimeError`. A single hard phenotype therefore aborted the notebook before that pair could be written to the checkpoint.
+
+This occurred for curated `excel:139 | YDL205C | heme`.
+
+Targeted profiling showed:
+
+- JSON load approximately `1.03 s`
+- solver setup approximately instantaneous
+- knockout application approximately instantaneous
+- the bottleneck was entirely inside GLPK optimization
+- `configuration.timeout=180` was set and mapped to GLPK `tm_lim=180000 ms`
+- the solve still exceeded 180 seconds of wall-clock time and was eventually stopped by the parent process timeout
+
+Environment:
+- Python 3.12.14
+- COBRApy 0.30.0
+- optlang 1.9.1
+- swiglpk 5.0.13
+- GLPK 5.0
+
+### Decision
+
+Outer worker timeout is now treated as a structured computational failure rather than as an exception that aborts the benchmark.
+
+Workflow v0.5.7 records a timed-out pair as:
+
+- `classification = solver_error`
+- `ko_status = process_timeout`
+- `rescue_status = process_timeout`
+- `failure_stage = worker_process_timeout`
+- `process_timeout_seconds = PROCESS_TIMEOUT_SECONDS`
+
+The result is checkpoint-compatible and the benchmark may continue to subsequent pairs. No biological classification is inferred from a timeout.
+
+### Validation
+
+A forced `2 s` timeout test on `YDL205C / heme` returned a structured `solver_error` row, wrote it successfully to the checkpoint, and completed the one-pair benchmark without raising an exception.
+
+### Scientific interpretation
+
+A timeout is a computational failure state, not evidence for or against auxotrophy. Full benchmark conclusions must report and resolve any remaining `solver_error` rows before headline accuracy is treated as authoritative.
+
+
 ## Current blocking issue
 
-R-017 is fixed and the R-016 root cause has been isolated. The next blocker is a complete provenance-clean v0.5.6 benchmark using fresh model instances per KO/rescue condition. No headline benchmark count is authoritative until that full run passes without solver/input errors and produces matching final-artifact provenance.
+R-017 and R-018 are fixed, and the R-016 root cause has been isolated. The next blocker is a complete provenance-clean v0.5.7 benchmark using fresh model instances per KO/rescue condition and structured timeout recording. No headline benchmark count is authoritative until the full run completes and remaining solver/input errors, if any, are explicitly resolved.
 
 ## Update rule
 
