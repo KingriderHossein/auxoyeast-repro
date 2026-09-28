@@ -553,11 +553,11 @@ COBRApy JSON serialization stores the standard model structure (metabolites, rea
 
 ### Decision
 
-Reject JSON round-trip as a reference benchmark isolation strategy until the `YPL028W` discrepancy is explained.
+Do not treat the historical R-016 observation as resolved or as proof that JSON reconstruction is phenotype-equivalent to the released SBML. Workflow v0.5.5 currently uses one fresh Python process and one fresh JSON-reconstructed model per phenotype, so JSON equivalence is again a live validation requirement.
 
 ### Next action
 
-JSON-specific diagnosis is deferred because the benchmark no longer depends on JSON reconstruction. The reference candidate is now process-level isolation: one fresh Python process, one fresh SBML load, and one phenotype simulation per process. JSON can be revisited later if the serialization mismatch itself becomes scientifically relevant.
+Before accepting a full v0.5.5 benchmark as reference output, run a provenance-clean validation panel that compares fresh SBML and fresh JSON reconstruction for the known difficult phenotypes, including `YPL028W` and `YPL214C`. If any phenotype-specific mismatch reappears, stop the JSON-based reference run and investigate the serialization/environment cause before continuing.
 
 ### Current re-evaluation
 
