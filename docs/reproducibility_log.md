@@ -520,7 +520,7 @@ This is a local implementation/state-management issue. It does not provide evide
 ## R-016 — COBRApy JSON round-trip is not phenotype-equivalent to the released SBML
 
 **Category:** Serialization / model artifact  
-**Status:** Reproduced on clean merged-main validation panel; current JSON reference path is blocked  
+**Status:** Root cause isolated; condition-isolated JSON fix validated on six difficult phenotypes  
 **Affected stage:** JSON/SBML equivalence and benchmark interpretation  
 **GitHub issue:** #14
 
@@ -575,7 +575,32 @@ For `YPL028W` / ergosterol:
 
 The other four difficult cases retained the same phenotype classification between SBML and JSON. Small floating-point differences were observed in some growth values, but they did not alter classification.
 
-Therefore, the historical R-016 mismatch is **reproduced** in a clean current environment and remains a blocker for accepting the JSON-based v0.5.5 benchmark as a reference result.
+Therefore, the historical R-016 mismatch is **reproduced** in a clean current environment.
+
+### Root-cause diagnosis
+
+Further isolation showed that the SBML and JSON models produce the same post-rescue linear program for `YPL028W`: the exported LP text was byte-for-byte identical and had the same SHA-256. The JSON reconstruction also produced the expected rescue when knockout and rescue bounds were applied before the first optimization.
+
+The phenotype-changing failure occurred specifically in this sequence on one JSON-reconstructed model instance:
+
+1. apply the YPL028W knockout;
+2. optimize the knockout condition;
+3. open the ergosterol rescue exchange;
+4. optimize again on the same model/solver instance.
+
+That sequence returned rescue growth `0`.
+
+When the rescue condition was rebuilt from a **fresh JSON model instance**, rescue growth returned to approximately `0.08846133`, matching fresh SBML. Reassigning the GLPK solver on the already-used JSON model did not repair the behavior.
+
+This identifies R-016 as a solver/optimization-state isolation problem in the sequential JSON re-optimization path, rather than a demonstrated stoichiometric or bound loss in the JSON representation.
+
+### Fix validation
+
+Workflow v0.5.6 evaluates knockout and rescue conditions on separate freshly loaded JSON model instances inside each phenotype process. The isolation mode is `fresh_process_json_condition_isolated`.
+
+A six-case validation panel (`YGR204W`, `YGR144W`, `YPL214C`, `YPL028W`, `YOR303W`, `YJR109C`) matched fresh-SBML phenotype classifications in all six cases. For `YPL028W / ergosterol`, the corrected JSON worker produced rescue growth approximately `0.08846133217` versus fresh-SBML approximately `0.08846133189`, both classified as `correct`.
+
+The full 147-pair benchmark still requires a provenance-clean v0.5.6 run before R-016 can be considered closed at the workflow level.
 
 ### Scientific interpretation
 
@@ -635,7 +660,7 @@ R-017 is an artifact-provenance failure. It is not evidence about the biological
 
 ## Current blocking issue
 
-R-017 is fixed, but R-016 is now the immediate benchmark blocker: the clean validation panel reproduced a phenotype-changing SBML-versus-JSON mismatch for `YPL028W / ergosterol`. The current JSON-based reference path must not proceed to a headline 147-pair result until this discrepancy is resolved or the reference isolation strategy is changed. No headline benchmark count is authoritative yet.
+R-017 is fixed and the R-016 root cause has been isolated. The next blocker is a complete provenance-clean v0.5.6 benchmark using fresh model instances per KO/rescue condition. No headline benchmark count is authoritative until that full run passes without solver/input errors and produces matching final-artifact provenance.
 
 ## Update rule
 
