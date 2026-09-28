@@ -520,8 +520,8 @@ This is a local implementation/state-management issue. It does not provide evide
 ## R-016 — COBRApy JSON round-trip is not phenotype-equivalent to the released SBML
 
 **Category:** Serialization / model artifact  
-**Status:** Documented; not a current benchmark blocker  
-**Affected stage:** Rejected candidate per-pair isolation strategy  
+**Status:** Under re-evaluation; historical mismatch not reproduced in the current controlled environment  
+**Affected stage:** JSON/SBML equivalence and benchmark interpretation  
 **GitHub issue:** #14
 
 ### Evidence
@@ -559,14 +559,81 @@ Reject JSON round-trip as a reference benchmark isolation strategy until the `YP
 
 JSON-specific diagnosis is deferred because the benchmark no longer depends on JSON reconstruction. The reference candidate is now process-level isolation: one fresh Python process, one fresh SBML load, and one phenotype simulation per process. JSON can be revisited later if the serialization mismatch itself becomes scientifically relevant.
 
+### Current re-evaluation
+
+On 2026-09-28, after restoring the environment to the repository constraint `pandas>=2.2,<3.0` with pandas 2.3.3, a direct fresh-model comparison was repeated with Python 3.12.14, COBRApy 0.30.0, libSBML 5.21.1, and GLPK.
+
+For `YPL214C` / thiamine:
+- fresh SBML: knockout growth = `0`, rescue growth approximately `0.08583536804`
+- fresh JSON: knockout growth = `0`, rescue growth approximately `0.08583536804`
+
+For `YPL028W` / ergosterol:
+- fresh SBML: knockout growth = `0`, rescue growth = `0`
+- fresh JSON: knockout growth = `0`, rescue growth = `0`
+
+Dimensions, objective, knockout bounds, and solver status matched in both comparisons.
+
+Therefore, the historical R-016 mismatch is **not reproduced in the current controlled environment**. This does not prove that R-016 was erroneous. The prior `0.088461` fresh-SBML rescue value remains part of the audit trail and its origin must be reconciled against historical environment/protocol state before R-016 can be closed.
+
 ### Scientific interpretation
 
-This is a local serialization/reconstruction issue. It is not evidence of an error in the paper or biological model.
+The current evidence no longer supports treating JSON serialization itself as the sole demonstrated cause of the historical `YPL028W` discrepancy. Environment, run state, or artifact provenance remain plausible contributors. No claim about the article or biological model follows from this unresolved implementation history.
+
+
+## R-017 — Final benchmark artifacts were not bound to an exact run signature
+
+**Category:** Provenance / artifact integrity  
+**Status:** Fix in progress  
+**Affected stage:** Final benchmark outputs and downstream interpretation  
+**GitHub issue:** #21
+
+### Evidence
+
+The current local v0.5.5 checkpoint for `Yeast9_curated` records:
+
+- Python 3.12.14
+- COBRApy 0.30.0
+- GLPK
+- workflow commit `929942bcfefbef69806e28d95451261d4401b87f`
+- current source-SBML, JSON-template, dataset, and worker hashes
+- 137 completed pairs
+- zero `solver_error` rows
+
+However, the existing final curated CSV contains different scientific results, including three `solver_error` rows at Excel rows 136, 137, and 139. It also disagrees with the current checkpoint for `YPL214C` and `YPL028W`.
+
+The existing `02_run_manifest.json` records a different execution environment (Python 3.12.9 and COBRApy 0.32.1).
+
+The clean `main` notebook does not load these stale CSVs automatically, but the final CSVs themselves were versioned without a sidecar that cryptographically binds them to the benchmark signature that produced them.
+
+### Impact
+
+A final CSV can outlive the workflow/environment that produced it and be mistaken for a current result. This can change phenotype classifications and therefore invalidate biological interpretation.
+
+### Decision
+
+Every completed final benchmark CSV must carry a metadata sidecar containing:
+
+- the exact benchmark signature
+- the signature payload
+- workflow version and commit
+- model/isolation identity
+- completed-pair count
+- SHA-256 of the final CSV
+
+Before final outputs are summarized or reused, the sidecar signature, row count, and CSV hash must match the current workflow.
+
+### Next action
+
+Land the provenance guard, then regenerate benchmark artifacts from a provenance-clean run. Existing mixed-state final outputs remain non-authoritative until replaced.
+
+### Scientific interpretation
+
+R-017 is an artifact-provenance failure. It is not evidence about the biological correctness of Yeast9, the curated model, or the paper.
 
 
 ## Current blocking issue
 
-The six-case fresh-process diagnostic has passed. The remaining benchmark blocker is completion of the full 147-pair process-isolated rerun for both models. R-006, R-015, and R-016 remain documented as reproducibility history, but the current reference candidate is process-level fresh-SBML isolation.
+The immediate blocker is a provenance-clean regeneration of the benchmark after R-017 is fixed. R-016 is under re-evaluation because its historical SBML-versus-JSON mismatch was not reproduced in the current controlled environment. No headline benchmark count is authoritative until one complete run has internally consistent code, environment, checkpoint metadata, final-artifact metadata, and outputs.
 
 ## Update rule
 
