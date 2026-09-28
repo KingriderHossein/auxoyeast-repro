@@ -88,6 +88,10 @@ Run the notebooks in order:
 
 The notebook workflow follows these rules:
 
+- phenotype execution uses `fresh_process_json_condition_isolated`
+- knockout and rescue conditions use independent fresh model instances
+- outer worker timeouts are recorded as `solver_error` rows instead of aborting the benchmark
+
 - Parse released spreadsheet columns by name, not column position.
 - Use stable pair identifiers for comparisons.
 - Keep every gene-compound simulation independent by reconstructing a fresh COBRA model from a validated in-memory-derived JSON template in a fresh Python process for each pair.
@@ -131,4 +135,4 @@ Han S, Wu K, Wang Y, Li F, Chen Y. *Auxotrophy-based curation improves the conse
 
 ## Version
 
-Notebook workflow version: **0.5.5**
+Notebook workflow version: **0.5.7**
