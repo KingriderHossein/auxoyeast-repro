@@ -710,9 +710,67 @@ A forced `2 s` timeout test on `YDL205C / heme` returned a structured `solver_er
 A timeout is a computational failure state, not evidence for or against auxotrophy. Full benchmark conclusions must report and resolve any remaining `solver_error` rows before headline accuracy is treated as authoritative.
 
 
+## R-019 — GLPK timeout-only retry for tolerance-sensitive heme phenotypes
+
+**Category:** Solver numerical robustness  
+**Status:** Implemented on branch and targeted validation passed  
+**Affected stage:** Full 147-pair benchmark execution  
+**GitHub issue:** #27
+
+### Root cause
+
+The v0.5.7 curated benchmark produced process timeouts for `YDL205C / heme` and `YOR278W / heme`. Deep GLPK diagnostics showed that the curated model contains biologically meaningful cofactor coefficients around `1e-6` while GLPK's default feasibility tolerance is `1e-7`. For `YDL205C`, a nominally optimal WT-like solution at the default tolerance contained a heme-a mass-balance residual around `8.58e-8`, small enough for GLPK to accept but large enough to change phenotype behavior.
+
+A global `1e-9` feasibility tolerance is not acceptable because it changes the validated `YPL028W / ergosterol` phenotype from `correct` to `type_II`.
+
+### Decision
+
+Workflow v0.5.8 keeps the primary reference path unchanged:
+
+- GLPK primary feasibility tolerance: `1e-7`
+- primary worker process timeout: `240 s`
+
+Only when the primary worker itself reaches `process_timeout`, the same pair is retried once with:
+
+- the same Python / COBRApy / GLPK stack
+- the same model, mappings, threshold, and isolation semantics
+- GLPK feasibility tolerance: `1e-9`
+- retry process timeout: `120 s`
+
+Normally solved phenotypes never enter the tight-tolerance path.
+
+### Provenance
+
+Each pair result now records:
+
+- `primary_feasibility_tolerance`
+- `primary_process_timeout`
+- `retry_policy`
+- `retry_attempted`
+- `retry_status`
+- `retry_feasibility_tolerance`
+- `retry_process_timeout_seconds`
+- `result_source`
+
+The benchmark signature and run manifest also include the retry policy and tolerance settings, preventing reuse of incompatible checkpoints.
+
+### Targeted validation
+
+- `YDL205C / heme`: forced primary timeout -> retry -> `correct`
+- `YOR278W / heme`: forced primary timeout -> retry -> `correct`
+- `YPL214C / thiamine`: forced-timeout control -> retry -> `correct`
+- `YPL028W / ergosterol`: normal primary path -> no retry -> `correct`
+
+The final-artifact path was also validated with a forced-timeout one-pair benchmark. The CSV row persisted the retry provenance and the sidecar signature payload recorded workflow v0.5.8, primary `1e-7`, retry `1e-9`, retry policy, and both process-timeout settings.
+
+### Remaining gate
+
+Do not treat the new benchmark counts as final until a clean full v0.5.8 run completes for both models with zero unresolved `solver_error` / `input_error` rows.
+
+
 ## Current blocking issue
 
-R-017 and R-018 are fixed, and the R-016 root cause has been isolated. The next blocker is a complete provenance-clean v0.5.7 benchmark using fresh model instances per KO/rescue condition and structured timeout recording. No headline benchmark count is authoritative until the full run completes and remaining solver/input errors, if any, are explicitly resolved.
+R-016 through R-019 have targeted fixes or validated mitigations. The next blocker is a complete provenance-clean v0.5.8 benchmark for both models using fresh model instances per KO/rescue condition and timeout-only GLPK retry. No headline benchmark count is authoritative until that run completes with zero unresolved solver/input errors and its artifact provenance passes validation.
 
 ## Update rule
 
