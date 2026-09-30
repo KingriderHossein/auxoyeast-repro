@@ -713,7 +713,7 @@ A timeout is a computational failure state, not evidence for or against auxotrop
 ## R-019 — GLPK timeout-only retry for tolerance-sensitive heme phenotypes
 
 **Category:** Solver numerical robustness  
-**Status:** Implemented on branch and targeted validation passed  
+**Status:** Implemented and targeted validation passed; full v0.5.8 run pending  
 **Affected stage:** Full 147-pair benchmark execution  
 **GitHub issue:** #27
 
