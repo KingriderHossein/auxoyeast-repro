@@ -19,6 +19,7 @@ def parse_args():
     parser.add_argument("--model-label", required=True)
     parser.add_argument("--solver", default="glpk")
     parser.add_argument("--solver-timeout", default=180, type=int)
+    parser.add_argument("--feasibility-tolerance", default=None, type=float)
     parser.add_argument("--threshold", required=True, type=float)
     parser.add_argument("--uptake-lower-bound", default=-1000.0, type=float)
     parser.add_argument("--gene", action="append", required=True)
@@ -97,6 +98,11 @@ def main():
     except Exception:
         pass
 
+    if args.feasibility_tolerance is not None:
+        model.solver.configuration.tolerances.feasibility = (
+            args.feasibility_tolerance
+        )
+
     missing_genes = [
         gene_id
         for gene_id in args.gene
@@ -113,6 +119,7 @@ def main():
             "model_json_sha256": sha256_file(model_json),
             "solver": args.solver,
             "solver_timeout_seconds": args.solver_timeout,
+            "feasibility_tolerance": args.feasibility_tolerance,
             "threshold": args.threshold,
             "uptake_lower_bound": args.uptake_lower_bound,
             "genes": "+".join(args.gene),
@@ -182,6 +189,11 @@ def main():
     except Exception:
         pass
 
+    if args.feasibility_tolerance is not None:
+        rescue_model.solver.configuration.tolerances.feasibility = (
+            args.feasibility_tolerance
+        )
+
     for gene_id in args.gene:
         rescue_model.genes.get_by_id(gene_id).knock_out()
 
@@ -233,6 +245,7 @@ def main():
         "model_json_sha256": sha256_file(model_json),
         "solver": args.solver,
         "solver_timeout_seconds": args.solver_timeout,
+        "feasibility_tolerance": args.feasibility_tolerance,
         "condition_isolation": "fresh_model_per_condition",
         "threshold": args.threshold,
         "uptake_lower_bound": args.uptake_lower_bound,
