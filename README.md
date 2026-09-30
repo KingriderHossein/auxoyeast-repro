@@ -90,7 +90,8 @@ The notebook workflow follows these rules:
 
 - phenotype execution uses `fresh_process_json_condition_isolated`
 - knockout and rescue conditions use independent fresh model instances
-- outer worker timeouts are recorded as `solver_error` rows instead of aborting the benchmark
+- primary phenotype workers use GLPK feasibility tolerance `1e-7`; only a worker `process_timeout` is retried once with GLPK feasibility tolerance `1e-9`
+- retry provenance records the primary timeout, retry policy/tolerance, retry status, and which attempt produced the final classification; a second timeout remains `solver_error`
 
 - Parse released spreadsheet columns by name, not column position.
 - Use stable pair identifiers for comparisons.
@@ -135,4 +136,4 @@ Han S, Wu K, Wang Y, Li F, Chen Y. *Auxotrophy-based curation improves the conse
 
 ## Version
 
-Notebook workflow version: **0.5.7**
+Notebook workflow version: **0.5.8**
