@@ -1,0 +1,521 @@
+{
+  "validator_version": "1.0.0",
+  "validator_sha256": "db3451fb3c2431cef5c6b45da4f4ea26458dff4e633090fc8ac2f79e06d9d1e6",
+  "validated_utc": "2026-10-03T00:14:23.068064+00:00",
+  "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+  "original_dirty_worktree_preserved": true,
+  "models": [
+    {
+      "model": "Yeast9",
+      "checks": {
+        "completed_run_record": true,
+        "input_hashes_match_reference": true,
+        "source_unchanged_from_execution_commit": true,
+        "notebook_runtime_hash_matches": true,
+        "workflow_constant_0_5_8": true,
+        "all_147_pair_ids_once": true,
+        "all_classes_recognized": true,
+        "no_solver_error": true,
+        "no_input_error": true,
+        "metadata_count_and_identity": true,
+        "signature_payload_exact": true,
+        "checkpoint_final_signature_matches_recomputed": true,
+        "final_csv_sha256_matches": true,
+        "checkpoint_and_final_byte_identical": true,
+        "classification_recomputed_from_growth_and_status": true,
+        "all_rows_reference_settings": true,
+        "retry_only_after_primary_process_timeout": true,
+        "retry_policy_and_timeout": true,
+        "primary_provenance_consistent": true,
+        "retry_provenance_consistent": true,
+        "fresh_full_run_log": true,
+        "retry_elapsed_at_least_primary_timeout": true
+      },
+      "passed": true,
+      "n": 147,
+      "counts": {
+        "correct": 92,
+        "type_I": 37,
+        "type_II": 18,
+        "solver_error": 0,
+        "input_error": 0
+      },
+      "accuracy_percent": 62.585034013605444,
+      "paper_reference_correct": 93,
+      "correct_minus_paper": -1,
+      "benchmark_signature": "e44504a941db94749dcb1349d05e69d4e80791cfa7fb603898834d5577417769",
+      "signature_payload": {
+        "workflow_version": "0.5.8",
+        "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+        "model": "Yeast9",
+        "source_sbml_sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5",
+        "model_json_sha256": "a0c2845382f586e2631455c9663dd0f7b161f63591dde29974464fe8f31d0742",
+        "dataset_sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab",
+        "worker_sha256": "50af7194a156d83730f3d719229e4af1df540fe304edd3a8d05e98fbf69e5741",
+        "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+        "cobra": "0.30.0",
+        "solver": "glpk",
+        "solver_timeout_seconds": 180,
+        "process_timeout_seconds": 240,
+        "primary_feasibility_tolerance": 1e-07,
+        "retry_policy": "process_timeout_only_tight_feasibility",
+        "retry_feasibility_tolerance": 1e-09,
+        "retry_process_timeout_seconds": 120,
+        "threshold": 0.0008590751899388004,
+        "uptake_lower_bound": -1000.0,
+        "mode": "fresh_process_json_condition_isolated"
+      },
+      "final_csv_sha256": "1d0ef6d0a824f5b538f596bf24098daa23304c222ad52cc156846ea577e28ba9",
+      "checkpoint_csv_sha256": "1d0ef6d0a824f5b538f596bf24098daa23304c222ad52cc156846ea577e28ba9",
+      "retry_rows": [],
+      "selected_controls": [
+        {
+          "pair_id": "excel:96",
+          "gene_field": "YPL214C",
+          "chemical": "thiamine(1+)",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "0.0",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08590754899640686",
+          "mapped_rescue": "r_2067",
+          "primary_process_timeout": "False",
+          "retry_attempted": "False",
+          "retry_status": "not_attempted",
+          "feasibility_tolerance": "1e-07",
+          "result_source": "primary"
+        },
+        {
+          "pair_id": "excel:123",
+          "gene_field": "YPL028W",
+          "chemical": "ergosterol",
+          "classification": "type_I",
+          "ko_status": "optimal",
+          "ko_growth": "0.08488395870884012",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08853792154052237",
+          "mapped_rescue": "r_1757",
+          "primary_process_timeout": "False",
+          "retry_attempted": "False",
+          "retry_status": "not_attempted",
+          "feasibility_tolerance": "1e-07",
+          "result_source": "primary"
+        },
+        {
+          "pair_id": "excel:139",
+          "gene_field": "YDL205C",
+          "chemical": "heme",
+          "classification": "type_II",
+          "ko_status": "optimal",
+          "ko_growth": "-3.0646399881311667e-30",
+          "rescue_status": "optimal",
+          "rescue_growth": "-3.0646399881311667e-30",
+          "mapped_rescue": "",
+          "primary_process_timeout": "False",
+          "retry_attempted": "False",
+          "retry_status": "not_attempted",
+          "feasibility_tolerance": "1e-07",
+          "result_source": "primary"
+        },
+        {
+          "pair_id": "excel:140",
+          "gene_field": "YOR278W",
+          "chemical": "heme",
+          "classification": "type_II",
+          "ko_status": "optimal",
+          "ko_growth": "0.0",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.0",
+          "mapped_rescue": "",
+          "primary_process_timeout": "False",
+          "retry_attempted": "False",
+          "retry_status": "not_attempted",
+          "feasibility_tolerance": "1e-07",
+          "result_source": "primary"
+        }
+      ],
+      "v057_provenance_valid": true,
+      "classification_changes_vs_v057": [],
+      "execution_record": {
+        "harness_version": "1.0.0",
+        "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+        "model": "Yeast9",
+        "worktree": "C:\\Users\\pc\\Documents\\auxoyeast\\auxoyeast-v058-yeast9",
+        "python_executable": "C:\\Users\\pc\\anaconda3\\envs\\auxoyeast-repro\\python.exe",
+        "started_utc": "2026-10-01T12:27:51.163314+00:00",
+        "cell_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "initial_git_status": "",
+        "notebook_sha256": "fc048613cda8960421f3c9aa0257a1927e534ca5c7cdf029a36d89e5fd9432ad",
+        "harness_sha256": "08bb9c73d3eabc940f3ffa2c529236cd9577111300cf9dfeadffdc892b738572",
+        "environment": {
+          "cobra": "0.30.0",
+          "pandas": "2.3.3",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python-libsbml": "5.21.1",
+          "optlang": "1.9.1",
+          "swiglpk": "5.0.13"
+        },
+        "source_mode": "unmodified notebook cells executed with reference Python; not an IPython kernel",
+        "run_context": {
+          "original_template": {
+            "model": "Yeast9",
+            "sbml_sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5",
+            "json_sha256": "a0c2845382f586e2631455c9663dd0f7b161f63591dde29974464fe8f31d0742",
+            "dimensions": {
+              "reactions": 4130,
+              "metabolites": 2805,
+              "genes": 1162
+            },
+            "objective": [
+              [
+                "r_2111",
+                1.0
+              ]
+            ],
+            "source_wt_growth": 0.08590751899388004,
+            "json_wt_growth": 0.08590751899387956
+          },
+          "curated_template": {
+            "model": "Yeast9_curated",
+            "sbml_sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af",
+            "json_sha256": "11b4a55a5969f123b6206884f9f012b1b4f05facb5d44e8b8165cef9cb3cb5a6",
+            "dimensions": {
+              "reactions": 4133,
+              "metabolites": 2805,
+              "genes": 1162
+            },
+            "objective": [
+              [
+                "r_2111",
+                1.0
+              ]
+            ],
+            "source_wt_growth": 0.0858353682022078,
+            "json_wt_growth": 0.08583536820220818
+          },
+          "wt_growth": 0.08590751899388004,
+          "viability_threshold": 0.0008590751899388004,
+          "RUN_GIT_COMMIT": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+          "curated_thi6_sentinel": {
+            "gene": "YPL214C",
+            "status": "optimal",
+            "growth": 0.0,
+            "bounds": {
+              "r_0556": [
+                0,
+                0
+              ],
+              "r_1036": [
+                0,
+                0
+              ],
+              "r_4753": [
+                0,
+                0
+              ]
+            }
+          }
+        },
+        "finished_utc": "2026-10-01T12:47:51.327185+00:00",
+        "exit_status": "completed",
+        "rows": 147,
+        "counts": {
+          "correct": 92,
+          "type_I": 37,
+          "type_II": 18
+        },
+        "final_csv_sha256": "1d0ef6d0a824f5b538f596bf24098daa23304c222ad52cc156846ea577e28ba9"
+      }
+    },
+    {
+      "model": "Yeast9_curated",
+      "checks": {
+        "completed_run_record": true,
+        "input_hashes_match_reference": true,
+        "source_unchanged_from_execution_commit": true,
+        "notebook_runtime_hash_matches": true,
+        "workflow_constant_0_5_8": true,
+        "all_147_pair_ids_once": true,
+        "all_classes_recognized": true,
+        "no_solver_error": true,
+        "no_input_error": true,
+        "metadata_count_and_identity": true,
+        "signature_payload_exact": true,
+        "checkpoint_final_signature_matches_recomputed": true,
+        "final_csv_sha256_matches": true,
+        "checkpoint_and_final_byte_identical": true,
+        "classification_recomputed_from_growth_and_status": true,
+        "all_rows_reference_settings": true,
+        "retry_only_after_primary_process_timeout": true,
+        "retry_policy_and_timeout": true,
+        "primary_provenance_consistent": true,
+        "retry_provenance_consistent": true,
+        "fresh_full_run_log": true,
+        "retry_elapsed_at_least_primary_timeout": true,
+        "r016_control_primary_correct_without_retry": true
+      },
+      "passed": true,
+      "n": 147,
+      "counts": {
+        "correct": 116,
+        "type_I": 28,
+        "type_II": 3,
+        "solver_error": 0,
+        "input_error": 0
+      },
+      "accuracy_percent": 78.91156462585033,
+      "paper_reference_correct": 117,
+      "correct_minus_paper": -1,
+      "benchmark_signature": "cb2c2a0a3fff05ca1cbc4950922a49f65a88bfbc809cdee692312bc37f54f9c6",
+      "signature_payload": {
+        "workflow_version": "0.5.8",
+        "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+        "model": "Yeast9_curated",
+        "source_sbml_sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af",
+        "model_json_sha256": "11b4a55a5969f123b6206884f9f012b1b4f05facb5d44e8b8165cef9cb3cb5a6",
+        "dataset_sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab",
+        "worker_sha256": "50af7194a156d83730f3d719229e4af1df540fe304edd3a8d05e98fbf69e5741",
+        "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+        "cobra": "0.30.0",
+        "solver": "glpk",
+        "solver_timeout_seconds": 180,
+        "process_timeout_seconds": 240,
+        "primary_feasibility_tolerance": 1e-07,
+        "retry_policy": "process_timeout_only_tight_feasibility",
+        "retry_feasibility_tolerance": 1e-09,
+        "retry_process_timeout_seconds": 120,
+        "threshold": 0.0008590751899388004,
+        "uptake_lower_bound": -1000.0,
+        "mode": "fresh_process_json_condition_isolated"
+      },
+      "final_csv_sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f",
+      "checkpoint_csv_sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f",
+      "retry_rows": [
+        {
+          "pair_id": "excel:139",
+          "gene_field": "YDL205C",
+          "chemical": "heme",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "2.705906647620948e-18",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08583541716470486",
+          "mapped_rescue": "r_temp1",
+          "primary_process_timeout": "True",
+          "retry_attempted": "True",
+          "retry_status": "completed",
+          "feasibility_tolerance": "1e-09",
+          "result_source": "retry",
+          "elapsed_seconds_floor": 35942
+        },
+        {
+          "pair_id": "excel:140",
+          "gene_field": "YOR278W",
+          "chemical": "heme",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "-2.3766089062866525e-29",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08583541716470566",
+          "mapped_rescue": "r_temp1",
+          "primary_process_timeout": "True",
+          "retry_attempted": "True",
+          "retry_status": "completed",
+          "feasibility_tolerance": "1e-09",
+          "result_source": "retry",
+          "elapsed_seconds_floor": 252
+        }
+      ],
+      "selected_controls": [
+        {
+          "pair_id": "excel:96",
+          "gene_field": "YPL214C",
+          "chemical": "thiamine(1+)",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "0.0",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08583536804283752",
+          "mapped_rescue": "r_2067",
+          "primary_process_timeout": "False",
+          "retry_attempted": "False",
+          "retry_status": "not_attempted",
+          "feasibility_tolerance": "1e-07",
+          "result_source": "primary"
+        },
+        {
+          "pair_id": "excel:123",
+          "gene_field": "YPL028W",
+          "chemical": "ergosterol",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "0.0",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08846133216824782",
+          "mapped_rescue": "r_1757",
+          "primary_process_timeout": "False",
+          "retry_attempted": "False",
+          "retry_status": "not_attempted",
+          "feasibility_tolerance": "1e-07",
+          "result_source": "primary"
+        },
+        {
+          "pair_id": "excel:139",
+          "gene_field": "YDL205C",
+          "chemical": "heme",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "2.705906647620948e-18",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08583541716470486",
+          "mapped_rescue": "r_temp1",
+          "primary_process_timeout": "True",
+          "retry_attempted": "True",
+          "retry_status": "completed",
+          "feasibility_tolerance": "1e-09",
+          "result_source": "retry"
+        },
+        {
+          "pair_id": "excel:140",
+          "gene_field": "YOR278W",
+          "chemical": "heme",
+          "classification": "correct",
+          "ko_status": "optimal",
+          "ko_growth": "-2.3766089062866525e-29",
+          "rescue_status": "optimal",
+          "rescue_growth": "0.08583541716470566",
+          "mapped_rescue": "r_temp1",
+          "primary_process_timeout": "True",
+          "retry_attempted": "True",
+          "retry_status": "completed",
+          "feasibility_tolerance": "1e-09",
+          "result_source": "retry"
+        }
+      ],
+      "v057_provenance_valid": true,
+      "classification_changes_vs_v057": [
+        {
+          "pair_id": "excel:139",
+          "gene": "YDL205C",
+          "chemical": "heme",
+          "v057": "solver_error",
+          "v058": "correct"
+        },
+        {
+          "pair_id": "excel:140",
+          "gene": "YOR278W",
+          "chemical": "heme",
+          "v057": "solver_error",
+          "v058": "correct"
+        }
+      ],
+      "execution_record": {
+        "harness_version": "1.0.0",
+        "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+        "model": "Yeast9_curated",
+        "worktree": "C:\\Users\\pc\\Documents\\auxoyeast\\auxoyeast-v058-curated",
+        "python_executable": "C:\\Users\\pc\\anaconda3\\envs\\auxoyeast-repro\\python.exe",
+        "started_utc": "2026-10-01T12:28:08.178673+00:00",
+        "cell_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ],
+        "initial_git_status": "",
+        "notebook_sha256": "fc048613cda8960421f3c9aa0257a1927e534ca5c7cdf029a36d89e5fd9432ad",
+        "harness_sha256": "08bb9c73d3eabc940f3ffa2c529236cd9577111300cf9dfeadffdc892b738572",
+        "environment": {
+          "cobra": "0.30.0",
+          "pandas": "2.3.3",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "python-libsbml": "5.21.1",
+          "optlang": "1.9.1",
+          "swiglpk": "5.0.13"
+        },
+        "source_mode": "unmodified notebook cells executed with reference Python; not an IPython kernel",
+        "run_context": {
+          "original_template": {
+            "model": "Yeast9",
+            "sbml_sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5",
+            "json_sha256": "a0c2845382f586e2631455c9663dd0f7b161f63591dde29974464fe8f31d0742",
+            "dimensions": {
+              "reactions": 4130,
+              "metabolites": 2805,
+              "genes": 1162
+            },
+            "objective": [
+              [
+                "r_2111",
+                1.0
+              ]
+            ],
+            "source_wt_growth": 0.08590751899388004,
+            "json_wt_growth": 0.08590751899387956
+          },
+          "curated_template": {
+            "model": "Yeast9_curated",
+            "sbml_sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af",
+            "json_sha256": "11b4a55a5969f123b6206884f9f012b1b4f05facb5d44e8b8165cef9cb3cb5a6",
+            "dimensions": {
+              "reactions": 4133,
+              "metabolites": 2805,
+              "genes": 1162
+            },
+            "objective": [
+              [
+                "r_2111",
+                1.0
+              ]
+            ],
+            "source_wt_growth": 0.0858353682022078,
+            "json_wt_growth": 0.08583536820220818
+          },
+          "wt_growth": 0.08590751899388004,
+          "viability_threshold": 0.0008590751899388004,
+          "RUN_GIT_COMMIT": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+          "curated_thi6_sentinel": {
+            "gene": "YPL214C",
+            "status": "optimal",
+            "growth": 0.0,
+            "bounds": {
+              "r_0556": [
+                0,
+                0
+              ],
+              "r_1036": [
+                0,
+                0
+              ],
+              "r_4753": [
+                0,
+                0
+              ]
+            }
+          }
+        },
+        "finished_utc": "2026-10-01T22:56:40.334560+00:00",
+        "exit_status": "completed",
+        "rows": 147,
+        "counts": {
+          "correct": 116,
+          "type_I": 28,
+          "type_II": 3
+        },
+        "final_csv_sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f"
+      }
+    }
+  ],
+  "passed": true
+}

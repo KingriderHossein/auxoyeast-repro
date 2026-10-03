@@ -1,0 +1,30 @@
+{
+  "signature": "cb2c2a0a3fff05ca1cbc4950922a49f65a88bfbc809cdee692312bc37f54f9c6",
+  "signature_payload": {
+    "workflow_version": "0.5.8",
+    "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+    "model": "Yeast9_curated",
+    "source_sbml_sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af",
+    "model_json_sha256": "11b4a55a5969f123b6206884f9f012b1b4f05facb5d44e8b8165cef9cb3cb5a6",
+    "dataset_sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab",
+    "worker_sha256": "50af7194a156d83730f3d719229e4af1df540fe304edd3a8d05e98fbf69e5741",
+    "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+    "cobra": "0.30.0",
+    "solver": "glpk",
+    "solver_timeout_seconds": 180,
+    "process_timeout_seconds": 240,
+    "primary_feasibility_tolerance": 1e-07,
+    "retry_policy": "process_timeout_only_tight_feasibility",
+    "retry_feasibility_tolerance": 1e-09,
+    "retry_process_timeout_seconds": 120,
+    "threshold": 0.0008590751899388004,
+    "uptake_lower_bound": -1000.0,
+    "mode": "fresh_process_json_condition_isolated"
+  },
+  "model": "Yeast9_curated",
+  "isolation_mode": "fresh_process_json_condition_isolated",
+  "workflow_version": "0.5.8",
+  "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+  "completed_pairs": 147,
+  "final_csv_sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f"
+}

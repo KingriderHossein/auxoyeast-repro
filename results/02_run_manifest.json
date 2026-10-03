@@ -1,0 +1,80 @@
+{
+  "workflow_version": "0.5.8",
+  "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+  "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\pc\\anaconda3\\envs\\auxoyeast-repro\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cobra": "0.30.0",
+  "solver": "glpk",
+  "isolation_mode": "fresh_process_json_condition_isolated",
+  "process_timeout_seconds": 240,
+  "solver_timeout_seconds": 180,
+  "primary_feasibility_tolerance": 1e-07,
+  "retry_policy": "process_timeout_only_tight_feasibility",
+  "retry_feasibility_tolerance": 1e-09,
+  "retry_process_timeout_seconds": 120,
+  "viability_fraction": 0.01,
+  "viability_threshold": 0.0008590751899388004,
+  "uptake_lower_bound": -1000.0,
+  "worker_sha256": "50af7194a156d83730f3d719229e4af1df540fe304edd3a8d05e98fbf69e5741",
+  "original_json_sha256": "a0c2845382f586e2631455c9663dd0f7b161f63591dde29974464fe8f31d0742",
+  "curated_json_sha256": "11b4a55a5969f123b6206884f9f012b1b4f05facb5d44e8b8165cef9cb3cb5a6",
+  "curated_thi6_sentinel": {
+    "gene": "YPL214C",
+    "status": "optimal",
+    "growth": 0.0,
+    "bounds": {
+      "r_0556": [
+        0,
+        0
+      ],
+      "r_1036": [
+        0,
+        0
+      ],
+      "r_4753": [
+        0,
+        0
+      ]
+    }
+  },
+  "files": [
+    {
+      "file": "yeast9.0.xml",
+      "bytes": 11776690,
+      "sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5"
+    },
+    {
+      "file": "Yeast9_curated.xml",
+      "bytes": 11185345,
+      "sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af"
+    },
+    {
+      "file": "mmc3.xlsx",
+      "bytes": 28226,
+      "sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab"
+    }
+  ],
+  "summary": [
+    {
+      "model": "Yeast9",
+      "n": 147,
+      "correct": 92,
+      "type_I": 37,
+      "type_II": 18,
+      "solver_error": 0,
+      "input_error": 0,
+      "accuracy": 0.6258503401
+    },
+    {
+      "model": "Yeast9_curated",
+      "n": 147,
+      "correct": 116,
+      "type_I": 28,
+      "type_II": 3,
+      "solver_error": 0,
+      "input_error": 0,
+      "accuracy": 0.7891156463
+    }
+  ]
+}

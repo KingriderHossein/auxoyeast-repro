@@ -43,3 +43,17 @@ results/*checkpoint*.json
 # Local environment and logs
 .env
 *.log
+# Completed v0.5.8 evidence package; checkpoints and caches remain excluded.
+!results/02_Yeast9_pair_results.csv
+!results/02_Yeast9_pair_results.meta.json
+!results/02_Yeast9_curated_pair_results.csv
+!results/02_Yeast9_curated_pair_results.meta.json
+!results/02_benchmark_summary.csv
+!results/02_pairwise_comparison.csv
+!results/02_run_manifest.json
+!results/02_v058_validation_report.json
+!results/02_v058_executed.ipynb
+!results/02_v058_source_preservation.json
+!results/02_v058_timing_evidence.json
+!results/02_v058_execution_notes.json
+!results/02_v058_artifact_index.json

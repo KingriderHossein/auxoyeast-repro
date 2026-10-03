@@ -3,3 +3,22 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.py text eol=lf
+
+# Preserve exact bytes of the reviewed v0.5.8 evidence package.
+results/02_Yeast9_pair_results.csv -text
+results/02_Yeast9_pair_results.meta.json -text
+results/02_Yeast9_curated_pair_results.csv -text
+results/02_Yeast9_curated_pair_results.meta.json -text
+results/02_benchmark_summary.csv -text
+results/02_pairwise_comparison.csv -text
+results/02_run_manifest.json -text
+results/02_v058_validation_report.json -text
+results/02_v058_executed.ipynb -text
+results/02_v058_source_preservation.json -text
+results/02_v058_timing_evidence.json -text
+results/02_v058_execution_notes.json -text
+docs/v058_execution_evidence.md -text
+scripts/validate_v058_artifacts_v1.py -text
+scripts/finalize_v058_results_v1.py -text
+scripts/verify_v058_persisted_artifacts_v1.py -text
+results/02_v058_artifact_index.json -text

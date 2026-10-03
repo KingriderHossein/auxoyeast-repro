@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "assignment_id": "27-r1-g1-v058-persist-20261003-c7e4b1a9",
+  "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+  "report_source_sha256": "a296bbf7b19d7eccefc36a1bd3c3dceab770ca03e52eb647db4c3888a041ff9b",
+  "source_execution_files_preserved": true,
+  "selected_curated_log_lines": [
+    "START 138/147 | excel:139 | YDL205C | heme",
+    "DONE  138/147 | excel:139 | class=correct | KO=optimal:2.70591e-18 | rescue=optimal:0.0858354 | pid=23988 | last=09h 59m 02s | elapsed=10h 22m 03s | ETA=09h 04m 16s",
+    "START 139/147 | excel:140 | YOR278W | heme",
+    "DONE  139/147 | excel:140 | class=correct | KO=optimal:-2.37661e-29 | rescue=optimal:0.0858354 | pid=22128 | last=04m 12s | elapsed=10h 26m 16s | ETA=08h 07m 02s",
+    "Yeast9_curated: DONE (147/147)"
+  ],
+  "timing": {
+    "reported_pair_elapsed_seconds_floor": 35942,
+    "sleep_wake_interval_seconds": 35715.181036,
+    "arithmetic_residual_seconds": 226.81896399999823,
+    "interpretation": "System suspension and resume-time clock adjustment are directly recorded and overlap the long pair interval. They support a suspension contribution to elapsed time. The residual is arithmetic, not a measured active CPU/process duration. Exact timeout enforcement remains unresolved; no 240-second hard-bound claim is made."
+  },
+  "scope": "Existing completed results only; no optimization, model construction, template regeneration, benchmark rerun, scientific parameter change, merge or issue closure."
+}
