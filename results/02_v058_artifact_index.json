@@ -1,0 +1,89 @@
+{
+  "assembly_version": "1.0.0",
+  "workflow_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+  "files": [
+    {
+      "path": "results/02_Yeast9_pair_results.csv",
+      "bytes": 91086,
+      "sha256": "1d0ef6d0a824f5b538f596bf24098daa23304c222ad52cc156846ea577e28ba9"
+    },
+    {
+      "path": "results/02_Yeast9_pair_results.meta.json",
+      "bytes": 1471,
+      "sha256": "ade853a36ad5e956caf6bfe86b8acdbae2a1d0c5df3436bd8e3c671ec823928b"
+    },
+    {
+      "path": "results/02_Yeast9_curated_pair_results.csv",
+      "bytes": 93864,
+      "sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f"
+    },
+    {
+      "path": "results/02_Yeast9_curated_pair_results.meta.json",
+      "bytes": 1487,
+      "sha256": "9d9ee26f2548616ff325b44e43e79efbff568e5369cc152c246a96d68ae94b4a"
+    },
+    {
+      "path": "results/02_benchmark_summary.csv",
+      "bytes": 162,
+      "sha256": "994d6e2ae7dcb8b553c1829af876ac4eb6d3bb8cb56990fa34dcd7092861e6ce"
+    },
+    {
+      "path": "results/02_pairwise_comparison.csv",
+      "bytes": 185502,
+      "sha256": "313aadd35918bd25852c19356c40dcf109d8bdebd7c53a13ba8f5bd5fc7b92d8"
+    },
+    {
+      "path": "results/02_run_manifest.json",
+      "bytes": 2306,
+      "sha256": "99c1a4592e5336773d933e2e8323651967b09f57ec54d2ca3d20fdb536bfab3e"
+    },
+    {
+      "path": "results/02_v058_validation_report.json",
+      "bytes": 19012,
+      "sha256": "a296bbf7b19d7eccefc36a1bd3c3dceab770ca03e52eb647db4c3888a041ff9b"
+    },
+    {
+      "path": "results/02_v058_executed.ipynb",
+      "bytes": 119347,
+      "sha256": "2705fbba249674f76ef3d0d246e204cc7f45c1b5cc439e140dcf5420cfce8946"
+    },
+    {
+      "path": "results/02_v058_source_preservation.json",
+      "bytes": 7826,
+      "sha256": "088dc77e5b78b8483bba56e87e7521bd32831746d6427e6ba31efdc1c3ca07a1"
+    },
+    {
+      "path": "results/02_v058_timing_evidence.json",
+      "bytes": 4391,
+      "sha256": "964d38bdd70ae6d1e1bb41bd1e4f149821dc43faab36d2302c18f37f160babe3"
+    },
+    {
+      "path": "results/02_v058_execution_notes.json",
+      "bytes": 1504,
+      "sha256": "6c94805845fb53846b6199a99d7540c3a55f6b8428ab1ac14f548bbde1f62320"
+    },
+    {
+      "path": "docs/v058_execution_evidence.md",
+      "bytes": 6399,
+      "sha256": "7666f8cffef4246797bde8e2c401fdc0854adc03d31b0e4a8d7502e0c76a16b2"
+    },
+    {
+      "path": "scripts/validate_v058_artifacts_v1.py",
+      "bytes": 11808,
+      "sha256": "db3451fb3c2431cef5c6b45da4f4ea26458dff4e633090fc8ac2f79e06d9d1e6"
+    },
+    {
+      "path": "scripts/finalize_v058_results_v1.py",
+      "bytes": 6318,
+      "sha256": "7d5d83203e5c6e64bd06b325fc39e2c4d67c6ea4ccff900ba61d152c8ead88c2"
+    },
+    {
+      "path": "scripts/verify_v058_persisted_artifacts_v1.py",
+      "bytes": 10930,
+      "sha256": "8952a900283b7418993d40786448655b850c86d4fa69254967a23e47730b5452"
+    }
+  ],
+  "package_version": "1.0.0",
+  "assignment_id": "27-r1-g1-v058-persist-20261003-c7e4b1a9",
+  "note": "The index records file bytes, not Git blob IDs; it excludes itself to avoid a recursive hash."
+}

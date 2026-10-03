@@ -1,0 +1,83 @@
+{
+    "version":  "1.0.0",
+    "query_start_utc":  "2026-10-01T12:28:08Z",
+    "query_end_utc":  "2026-10-01T23:00:00Z",
+    "query_log":  "System",
+    "events":  [
+                   {
+                       "Provider":  "Microsoft-Windows-Power-Troubleshooter",
+                       "Id":  1,
+                       "RecordID":  101761,
+                       "TimeUTC":  "2026-10-01T22:50:20.9985819Z",
+                       "Data":  {
+                                    "SleepTime":  "2026-10-01T12:55:04.8782036Z",
+                                    "WakeTime":  "2026-10-01T22:50:20.0592390Z",
+                                    "SleepDuration":  "1143",
+                                    "WakeDuration":  "1558",
+                                    "DriverInitDuration":  "1372",
+                                    "BiosInitDuration":  "18194",
+                                    "HiberWriteDuration":  "4271",
+                                    "HiberReadDuration":  "4191",
+                                    "HiberPagesWritten":  "880175",
+                                    "Attributes":  "1979728129",
+                                    "TargetState":  "5",
+                                    "EffectiveState":  "5",
+                                    "WakeSourceType":  "0",
+                                    "WakeSourceTextLength":  "0",
+                                    "WakeSourceText":  "",
+                                    "WakeTimerOwnerLength":  "0",
+                                    "WakeTimerContextLength":  "0",
+                                    "NoMultiStageResumeReason":  "0",
+                                    "WakeTimerOwner":  "",
+                                    "WakeTimerContext":  "",
+                                    "CheckpointDuration":  "75"
+                                }
+                   },
+                   {
+                       "Provider":  "Microsoft-Windows-Kernel-General",
+                       "Id":  1,
+                       "RecordID":  101751,
+                       "TimeUTC":  "2026-10-01T22:50:18.5002817Z",
+                       "Data":  {
+                                    "NewTime":  "2026-10-01T22:50:18.5000000Z",
+                                    "OldTime":  "2026-10-01T12:55:07.9417811Z",
+                                    "TimeDeltaInMs":  "35710558",
+                                    "Reason":  "2",
+                                    "ProcessName":  "",
+                                    "ProcessID":  "4",
+                                    "CmosTime":  "2026-10-02T02:20:18.5000000Z",
+                                    "TimeZoneBias":  "-210",
+                                    "RealTimeIsUniversal":  "false",
+                                    "SystemInCmosMode":  "false"
+                                }
+                   },
+                   {
+                       "Provider":  "Microsoft-Windows-Kernel-Power",
+                       "Id":  107,
+                       "RecordID":  101750,
+                       "TimeUTC":  "2026-10-01T12:55:07.9418357Z",
+                       "Data":  {
+                                    "TargetState":  "5",
+                                    "EffectiveState":  "5",
+                                    "WakeFromState":  "5",
+                                    "ProgrammedWakeTimeAc":  "1601-01-01T00:00:00.0000000Z",
+                                    "ProgrammedWakeTimeDc":  "1601-01-01T00:00:00.0000000Z",
+                                    "WakeRequesterTypeAc":  "0",
+                                    "WakeRequesterTypeDc":  "0"
+                                }
+                   },
+                   {
+                       "Provider":  "Microsoft-Windows-Kernel-Power",
+                       "Id":  42,
+                       "RecordID":  101749,
+                       "TimeUTC":  "2026-10-01T12:55:05.3663285Z",
+                       "Data":  {
+                                    "TargetState":  "5",
+                                    "EffectiveState":  "5",
+                                    "Reason":  "4",
+                                    "Flags":  "0",
+                                    "TransitionsToOn":  "3"
+                                }
+                   }
+               ]
+}

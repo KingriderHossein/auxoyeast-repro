@@ -780,3 +780,9 @@ When a new reproducibility-relevant problem is discovered:
 2. Open a GitHub Issue when the problem is unresolved and can change scientific results or block exact reproduction.
 3. Link the resolving commit or pull request when the issue is fixed.
 4. Keep the original entry after resolution so the project retains a complete scientific audit trail.
+
+## v0.5.8 completed-run evidence submitted for review (2026-10-03)
+
+This dated update supersedes the pending-execution statements above for the two existing v0.5.8 runs. It does not close the historical issues or replace their diagnostic evidence.
+
+Both models completed all 147 pairs at execution commit feaabea5d4408d14f15aee47da5399f5d2130be8. Independent artifact validation passed: Yeast9 92 correct / 37 type_I / 18 type_II; curated 116 correct / 28 type_I / 3 type_II; zero solver/input errors. The two curated heme timeouts resolved through the documented retry; YPL214C and YPL028W retained their primary-only controls. R-011 remains open because counts are one below each supplied article claim. R-019 remains open: System events support a long suspension interval, but exact 240-second timeout enforcement across it is unproven. See [the complete evidence and timing note](v058_execution_evidence.md). The artifacts are prepared for review; this is not final scientific acceptance.
