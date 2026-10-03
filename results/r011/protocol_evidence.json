@@ -1,0 +1,98 @@
+[
+  {
+    "topic": "solver_versions",
+    "paper": "MATLAB + COBRA Toolbox + Gurobi; versions not stated in section 2.2",
+    "author_snapshot": "No solver/runtime versions in benchmark scripts. Distributed Yeast9 dependencies.txt lists MATLAB 9.12.0.2039608 R2022a Update 5, libSBML 5.19.0, RAVEN 2.8.6, COBRA commit 28acb94; these are model-export dependencies, not a certified article-run environment.",
+    "fixed_python_v058": "COBRApy 0.30.0; GLPK; Python 3.12.14, exact sidecar signature; solver build not in pair signature",
+    "source_locator": "ART section 2.2; UPSTREAM code/gene_screen.m L1-36, gene_sup.m L1-40; PY058 sidecars signature_payload; model/Yeast9/dependencies.txt L1-4",
+    "implication": "Different documented software stacks; causal effect not tested"
+  },
+  {
+    "topic": "objective",
+    "paper": "Maximize biomass flux",
+    "author_snapshot": "optimizeCbModel(model, max); objective inherited from supplied model",
+    "fixed_python_v058": "Source SBML biomass objective r_2111 with coefficient 1; Notebook 02 checks objective signature across JSON reconstruction; maximization.",
+    "source_locator": "ART section 2.3; gene_screen.m L5,15,19; gene_sup.m L5,25,30; Notebook 02 code cell 3; R-011 static_model_context.json objectives",
+    "implication": "Objective agrees at documented level; exact author numerical output unavailable"
+  },
+  {
+    "topic": "WT_normalization",
+    "paper": "Default Yeast9 WT 0.0859; below 1% WT is inviable",
+    "author_snapshot": "gene_screen opens glucose r_1714 to -1000 before WT; gene_sup does likewise",
+    "fixed_python_v058": "Threshold 0.0008590751899388004, 1% of persisted original WT; shared for both models; templates prepared without scientific rerun",
+    "source_locator": "ART section 2.3; gene_screen.m L4-6,22-23; gene_sup.m L4-5,32; PY058 sidecars; Notebook 02 code cells 3,5",
+    "implication": "Paper rounding and author WT setup are not an exact common WT certificate"
+  },
+  {
+    "topic": "viability_inequalities",
+    "paper": "Below 1% WT described as nonviable",
+    "author_snapshot": "gene_screen: KO < and rescue <; else viable. gene_sup: KO < AND rescue > (strict), differs at equality",
+    "fixed_python_v058": "KO >= threshold -> type_I; rescue < threshold -> type_II; else correct",
+    "source_locator": "ART section 2.3; gene_screen.m L22-33; gene_sup.m L32; scripts/json_pair_worker.py L59-78",
+    "implication": "Screen and project equality convention agree; systematic generator strict rescue boundary differs; no boundary simulation performed"
+  },
+  {
+    "topic": "environment_glucose",
+    "paper": "Yeast9 predefined medium; supplemental exchange lower bound -1000",
+    "author_snapshot": "gene_screen/gene_sup set glucose -1000 before WT; part_temp.xlsx not released so benchmark per-row medium cannot be reconstructed",
+    "fixed_python_v058": "JSON inherits SBML medium; glucose preserved from templates; -1000 only for requested background/rescue",
+    "source_locator": "ART section 2.3; gene_screen.m L4,7,18; gene_sup.m L4; Notebook 02 code cells 1-3; worker L164-176,200-227",
+    "implication": "Static model glucose bound captured separately; a protocol difference, not a demonstrated cause"
+  },
+  {
+    "topic": "background_rescue",
+    "paper": "Extra background supplements acknowledged (e.g. ADE4 + thiamine)",
+    "author_snapshot": "gene_screen reads genes in column 1 and exchange IDs in column 4 of absent part_temp.xlsx (source lines 8-9); adds IDs only after KO; no separately documented background KO step.",
+    "fixed_python_v058": "Dataset 2 exchange-count split retains requested background in both KO/rescue and requested rescue only in rescue",
+    "source_locator": "ART section 3.1; gene_screen.m L7-9,13-20; Notebook 02 code cell 2; worker L161-229",
+    "implication": "Dataset 2 experimental context is not an author prediction label; condition omissions block row comparison"
+  },
+  {
+    "topic": "multi_gene_knockout",
+    "paper": "Method describes single-gene knockout; Dataset 2 includes joint-gene records",
+    "author_snapshot": "gene_screen uses part_temp first-column gene strings; unpublished table prevents verifying expansion; gene_sup loops one gene",
+    "fixed_python_v058": "All genes split on and, sequentially knocked out together, complete gene set retained",
+    "source_locator": "ART section 2.3; Dataset 2 all!A72,A73,A74; gene_screen.m L8,14; gene_sup.m L22; worker L151-152,197-198",
+    "implication": "Do not join a joint-gene record to a single-gene label"
+  },
+  {
+    "topic": "aliases_missing_ids",
+    "paper": "No complete alias/missing-ID policy reported",
+    "author_snapshot": "auxoCurate adds heme exchange r_temp1; gene_sup enumerates single-metabolite reactions; changeRxnsModel implementation absent from complete inspected tree.",
+    "fixed_python_v058": "Curated alias a_0001 -> r_temp1; unresolved reactions logged, missing genes input_error; no observed input_error",
+    "source_locator": "auxoCurate.m L27-28; gene_sup.m L3,13-18; Notebook 02 code cell 1; worker L41-49,106-141,161-227",
+    "implication": "Preserve requested and mapped IDs; observed missing exchanges are not silently author predictions"
+  },
+  {
+    "topic": "condition_isolation",
+    "paper": "Not specified",
+    "author_snapshot": "gene_screen optimizes KO and then changes rescue bounds on same model",
+    "fixed_python_v058": "Fresh JSON reconstruction independently for KO and rescue",
+    "source_locator": "gene_screen.m L13-20; worker L93,181-229",
+    "implication": "Execution path differs; no causal claim without experiment"
+  },
+  {
+    "topic": "numerical_controls",
+    "paper": "Gurobi tolerances, threads, timeout/retry/version not reported",
+    "author_snapshot": "No such controls in inspected benchmark scripts",
+    "fixed_python_v058": "Primary feasibility 1e-7, solver 180s/process 240s, timeout-only retry 1e-9/process 120s as stored; timeout suspension limitation remains in #27",
+    "source_locator": "ART section 2.2-2.3; code/gene_screen.m; PY058 sidecars; docs/v058_execution_evidence.md",
+    "implication": "Recorded settings are not proof of effective wall-clock timeout; no re-investigation"
+  },
+  {
+    "topic": "model_identity",
+    "paper": "Yeast9 and Yeast9_curated; article does not pin execution commit",
+    "author_snapshot": "Publication-proximate snapshot 4a62...; latest 6ec... changes README only; model XML blobs equal project bytes",
+    "fixed_python_v058": "Model SBML SHA-256 in sidecars; scientific SHA feaabea... differs from evidence integration SHA 3ca66...",
+    "source_locator": "UPSTREAM recursive trees; PY058 signature_payload source_sbml_sha256/workflow_commit",
+    "implication": "Byte identity strengthens source provenance but does not recover author run state"
+  },
+  {
+    "topic": "reference_completeness",
+    "paper": "147 denominator; Table 1 selected error labels; Figs 4/S2 systematic positives; Fig 2 aggregates",
+    "author_snapshot": "No released part_temp.xlsx, g_sall.xlsx or complete benchmark prediction matrix in complete inspected tree",
+    "fixed_python_v058": "147 records/model, full classifications/growth stored; 26 fixed, 2 regressions, 119 unchanged",
+    "source_locator": "ART Table 1, Figs 2/4; mmc1 pp.2-4; upstream tree; results/02_pairwise_comparison.csv",
+    "implication": "Missing benchmark-specific predictions remain unknown; positive graph absence is not a negative result"
+  }
+]

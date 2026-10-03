@@ -57,3 +57,25 @@ results/*checkpoint*.json
 !results/02_v058_timing_evidence.json
 !results/02_v058_execution_notes.json
 !results/02_v058_artifact_index.json
+
+# R-011 source cache is private; persisted analytical outputs are allowlisted.
+.r011-source-cache/
+!results/r011/
+results/r011/*
+!results/r011/source_registry.json
+!results/r011/protocol_evidence.json
+!results/r011/source_profiles.json
+!results/r011/reference_records.json
+!results/r011/pair_crosswalk.csv
+!results/r011/coverage_summary.csv
+!results/r011/unmatched_and_multiple.json
+!results/r011/aggregate_comparison.csv
+!results/r011/protocol_comparison.csv
+!results/r011/static_model_context.json
+!results/r011/focus_pairs.csv
+!results/r011/join_validation.json
+!results/r011/audit_manifest.json
+!results/r011/validation_report.json
+!results/r011/v058_before.json
+!results/r011/v058_after.json
+!results/r011/source_preservation.json

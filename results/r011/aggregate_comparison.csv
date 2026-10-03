@@ -1,0 +1,3 @@
+model,denominator,current_correct,paper_correct_text_fig2b,current_type_I,paper_type_I_fig2b,current_type_II,paper_type_II_fig2b,conditional_minimum_class_disagreements,fig2a_category_sum,fig2a_internal_agreement,source_id,source_locator,inference
+Yeast9,147,92,93,37,40,18,14,4,91,False,FIG2,Section 3.3 p0185/p0195; Fig. 2B branches; Fig. 2A category labels,"Histogram lower bound only, assuming same 147 records and class definitions; does not identify pairs/causes"
+Yeast9_curated,147,116,117,28,28,3,2,1,117,True,FIG2,Section 3.3 p0185/p0195; Fig. 2B branches; Fig. 2A category labels,"Histogram lower bound only, assuming same 147 records and class definitions; does not identify pairs/causes"

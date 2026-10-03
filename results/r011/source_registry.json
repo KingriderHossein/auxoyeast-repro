@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "ART",
+      "kind": "primary_article",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/",
+      "doi": "10.1016/j.synbio.2024.07.006",
+      "publication_date": "2024-07-30",
+      "license": "CC BY 4.0 per article front matter",
+      "locator": "Sections 2.1-2.5, 3.1-3.4; Table 1; Figs 2,4,5",
+      "inspection": "Full JATS text/tables and visual figures; no full third-party text is committed"
+    },
+    {
+      "source_id": "FIG2",
+      "kind": "published_aggregate",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig2",
+      "locator": "Figure 2A/B; section 3.3 p0185/p0195",
+      "inspection": "Direct visual labels; aggregate counts are not per-pair reference predictions",
+      "content_identity": {
+        "bytes": 161243,
+        "sha256": "8e8eb71e6d2999a63ae57e352db91efe30539207bb29baef96e6501183379669"
+      }
+    },
+    {
+      "source_id": "FIG4",
+      "kind": "systematic_positive_prediction_graph",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4; section 3.4",
+      "inspection": "41 clear positive amino-acid edges transcribed; central crossing block not assigned edge-by-edge; benchmark background/run identity unavailable"
+    },
+    {
+      "source_id": "SUP",
+      "kind": "official_supplements",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11704421/supplementaryFiles",
+      "locator": "mmc1.pdf pp.1-4, mmc2.xlsx Sheet1, mmc3.xlsx all/aminoacid/vitamin/nitrogenous base/other",
+      "inspection": "All three supplement files accessed; workbook schemas and records read; S1/S2 visual/text review; S2 not exhaustively digitized"
+    },
+    {
+      "source_id": "DATA1",
+      "kind": "experimental_dataset",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#appsec1",
+      "locator": "Dataset 1 / mmc2.xlsx / Sheet1 columns A:I",
+      "inspection": "Experimental auxotrophy records, not an author-model prediction matrix",
+      "content_identity": {
+        "bytes": 49154,
+        "sha256": "c038d5be940bdf2780e5a90a07268984c7615570fbcc4ba8bb73e3c1eb98a196"
+      }
+    },
+    {
+      "source_id": "DATA2",
+      "kind": "experimental_dataset",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#appsec1",
+      "locator": "Dataset 2 / mmc3.xlsx all!A1:F148",
+      "inspection": "147 experimental phenotype records and identifiers; no prediction/growth/class columns",
+      "content_identity": {
+        "bytes": 28226,
+        "sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab"
+      }
+    },
+    {
+      "source_id": "SUPFIG",
+      "kind": "systematic_positive_prediction_graph",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#appsec1",
+      "locator": "mmc1.pdf Figure S1 p.2; Figure S2 pp.3-4",
+      "inspection": "S1 is a distinct S288c-curated model; S2 is a full systematic positive graph, not a 147-row benchmark result matrix; vector graph visually inspected but not exhaustively digitized",
+      "content_identity": {
+        "bytes": 808025,
+        "sha256": "bd05823aa4e159b4519692e9e69acd6257ce0c2f05f79aaa041a7d50ab89569a"
+      }
+    },
+    {
+      "source_id": "UPSTREAM",
+      "kind": "author_code_model_snapshot",
+      "url": "https://github.com/ChenYuGroup/AuxoYeast/tree/4a62a72cfb04607fd910c0d037d217987cd6db21",
+      "locator": "Complete recursive tree; code/gene_screen.m, code/gene_sup.m, auxoCurate.m, model files",
+      "snapshot_commit": "4a62a72cfb04607fd910c0d037d217987cd6db21",
+      "snapshot_inference": "Closest preceding public commit (2024-07-11) before publication, not a paper-pinned run commit",
+      "current_commit": "6ec888016d199a81f2584eec8b418ffd990434a7",
+      "current_changes": [
+        "README.md"
+      ],
+      "inspection": "Complete file inventory, MATLAB source and MAT field structure, XML/JSON static reads, substrate notebooks/workbooks read only; no author code executed"
+    },
+    {
+      "source_id": "PY058",
+      "kind": "accepted_project_execution",
+      "url": "https://github.com/KingriderHossein/auxoyeast-repro/pull/29",
+      "locator": "results/02_*; scripts/json_pair_worker.py; notebooks/02_auxotrophy_reproduction.ipynb code cells 1-4",
+      "integration_commit": "3ca66b4c119d8968c1ede7769125ef8b3a44fc61",
+      "scientific_execution_commit": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+      "inspection": "Existing classifications/numerical outputs only; no scientific rerun"
+    }
+  ],
+  "retrieval_attempts": [
+    {
+      "name": "article.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11704421/fullTextXML",
+      "status": 200,
+      "bytes": 142080,
+      "sha256": "f7741f07375700e98508af8375f2d74cf9c8bd83da5ae38a33186140503a958b",
+      "retrieved_at": "2026-10-03T01:11:13.840512+00:00"
+    },
+    {
+      "name": "author_repo_metadata.json",
+      "url": "https://api.github.com/repos/ChenYuGroup/AuxoYeast",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "name": "author_commits.json",
+      "url": "https://api.github.com/repos/ChenYuGroup/AuxoYeast/commits?per_page=100",
+      "status": 200,
+      "bytes": 21481,
+      "sha256": "cdfab15880331a163b19a41f5ac7093b492f37403c1357817359b8854bb29ccf",
+      "retrieved_at": "2026-10-03T01:11:14.893927+00:00"
+    },
+    {
+      "name": "author_tags.json",
+      "url": "https://api.github.com/repos/ChenYuGroup/AuxoYeast/tags?per_page=100",
+      "status": 200,
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "retrieved_at": "2026-10-03T01:11:15.440430+00:00"
+    },
+    {
+      "name": "author_releases.json",
+      "url": "https://api.github.com/repos/ChenYuGroup/AuxoYeast/releases?per_page=100",
+      "status": 200,
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "retrieved_at": "2026-10-03T01:11:16.081786+00:00"
+    },
+    {
+      "name": "author_tree_publication.json",
+      "url": "https://api.github.com/repos/ChenYuGroup/AuxoYeast/git/trees/4a62a72cfb04607fd910c0d037d217987cd6db21?recursive=1",
+      "status": 200,
+      "bytes": 5536,
+      "sha256": "3d07879f105423845a81c327c4df4cc21eaeb4bd02bc8c738d8452207a7c05da",
+      "retrieved_at": "2026-10-03T01:12:24.615419+00:00"
+    },
+    {
+      "name": "author_tree_current.json",
+      "url": "https://api.github.com/repos/ChenYuGroup/AuxoYeast/git/trees/6ec888016d199a81f2584eec8b418ffd990434a7?recursive=1",
+      "status": 200,
+      "bytes": 5536,
+      "sha256": "ac25fec808281a5141a9b9b8ddc5d26b7af4afe3ee4fb18cfdd617c961af56aa",
+      "retrieved_at": "2026-10-03T01:12:25.190276+00:00"
+    },
+    {
+      "name": "supplementary.zip",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11704421/supplementaryFiles",
+      "status": 200,
+      "bytes": 2148346,
+      "sha256": "dc91618a2521cc13de4c71ee215d54706a66eb4eda77761e5ca4b2fcc20243b8",
+      "retrieved_at": "2026-10-03T01:13:21.538259+00:00"
+    },
+    {
+      "name": "oa_metadata.xml",
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC11704421",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "author_README.md",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/README.md",
+      "bytes": 1212,
+      "sha256": "7ffd83f612e1c00caf8185d61a849ac688821c6162280503d150715e7c7cb96a",
+      "retrieved_at": "2026-10-03T01:14:18.689751+00:00"
+    },
+    {
+      "name": "author_code_gene_screen.m",
+      "path": "code/gene_screen.m",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/gene_screen.m",
+      "bytes": 886,
+      "sha256": "047350e807ac80d6b2d73d487c4ace30efb4f4d08488d3893dad5106fad0f5cb",
+      "retrieved_at": "2026-10-03T01:14:18.649880+00:00"
+    },
+    {
+      "name": "author_code_gene_sup.m",
+      "path": "code/gene_sup.m",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/gene_sup.m",
+      "bytes": 1186,
+      "sha256": "07547497eeb1494db3deab4053802a73c2ad23d22efeed3151d2318303dee267",
+      "retrieved_at": "2026-10-03T01:14:18.651408+00:00"
+    },
+    {
+      "name": "author_auxoCurate.m",
+      "path": "auxoCurate.m",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/auxoCurate.m",
+      "bytes": 3582,
+      "sha256": "73bb396117415c3a50aea3a52630414bfa193cc9d693290b2e8850ece9e29ec5",
+      "retrieved_at": "2026-10-03T01:14:19.565864+00:00"
+    },
+    {
+      "name": "author_code_Sub_use.ipynb",
+      "path": "code/Sub_use.ipynb",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/Sub_use.ipynb",
+      "bytes": 278767,
+      "sha256": "193f9bacadf0ff101ecaabf1b745000da2c8e1b098167d98ca79e8a653335573",
+      "retrieved_at": "2026-10-03T01:14:20.788183+00:00"
+    },
+    {
+      "name": "author_code_Sub_use_fig.ipynb",
+      "path": "code/Sub_use_fig.ipynb",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/Sub_use_fig.ipynb",
+      "bytes": 64832,
+      "sha256": "b9eee1dc0938bfa8b7ce582351b4a6ea5dbaa5adc9080b8270118ee9dad6ce88",
+      "retrieved_at": "2026-10-03T01:14:20.068189+00:00"
+    },
+    {
+      "name": "author_code_yeast9_curated_sub_use.xlsx",
+      "path": "code/yeast9_curated_sub_use.xlsx",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/yeast9_curated_sub_use.xlsx",
+      "bytes": 12739,
+      "sha256": "1cc01c118e23feb3b628a986c8accae0c3b10a34e06d32a82f15c2a0ba230d96",
+      "retrieved_at": "2026-10-03T01:14:20.349420+00:00"
+    },
+    {
+      "name": "author_code_yeast9_sub_use.xlsx",
+      "path": "code/yeast9_sub_use.xlsx",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/yeast9_sub_use.xlsx",
+      "bytes": 12739,
+      "sha256": "e7e4500a736f49677d5be0c95b074a61351b5e73d331824dede665168b62ebd7",
+      "retrieved_at": "2026-10-03T01:14:20.202090+00:00"
+    },
+    {
+      "name": "author_model_Yeast9_dependencies.txt",
+      "path": "model/Yeast9/dependencies.txt",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/model/Yeast9/dependencies.txt",
+      "bytes": 104,
+      "sha256": "e0e5a99b0d1fdb2aab56816a98c49cc8906af2a16eff9d630c09ca611cd810ef",
+      "retrieved_at": "2026-10-03T01:14:20.799684+00:00"
+    },
+    {
+      "name": "author_code_essentialGenes.m",
+      "path": "code/essentialGenes.m",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/essentialGenes.m",
+      "bytes": 68719,
+      "sha256": "fde38b04ddb023994303c02ef09f60f5c9227eabbd47a2b45475c3c9657941b6",
+      "retrieved_at": "2026-10-03T01:29:36.214511+00:00"
+    },
+    {
+      "name": "author_code_Biolog_Substrate.tsv",
+      "path": "code/Biolog_Substrate.tsv",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/code/Biolog_Substrate.tsv",
+      "bytes": 12440,
+      "sha256": "a01d318c6db6447aab646212a9b13fd1b29138b05668724c80fe9117baaf310f",
+      "retrieved_at": "2026-10-03T01:29:36.177729+00:00"
+    },
+    {
+      "name": "author_model_Yeast9_yeast-GEM.mat",
+      "path": "model/Yeast9/yeast-GEM.mat",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/model/Yeast9/yeast-GEM.mat",
+      "bytes": 543166,
+      "sha256": "f384167586072d10c10a3a37b6630c995c65012c6d80fe5e65646d7f450a6384",
+      "retrieved_at": "2026-10-03T01:29:36.721657+00:00"
+    },
+    {
+      "name": "author_model_Yeast9_curated.mat",
+      "path": "model/Yeast9_curated.mat",
+      "url": "https://raw.githubusercontent.com/ChenYuGroup/AuxoYeast/4a62a72cfb04607fd910c0d037d217987cd6db21/model/Yeast9_curated.mat",
+      "bytes": 349303,
+      "sha256": "0831ec5d73d50d50a7a5c8bea5205937d5bc79ab2d0911f43e9292212ffde2ae",
+      "retrieved_at": "2026-10-03T01:29:36.683278+00:00"
+    }
+  ],
+  "upstream_publication_tree": [
+    {
+      "path": "LICENSE",
+      "git_blob_id": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7"
+    },
+    {
+      "path": "README.md",
+      "git_blob_id": "3bd252b7a02307f6442607cecf98f826c7025d6d"
+    },
+    {
+      "path": "auxoCurate.m",
+      "git_blob_id": "73c13099d3aeb16facc1ec6b2a10544fdfdaf61d"
+    },
+    {
+      "path": "code/Biolog_Substrate.tsv",
+      "git_blob_id": "a642b63a23f8922ad80c9f1389eca074eb78c49a"
+    },
+    {
+      "path": "code/Sub_use.ipynb",
+      "git_blob_id": "725db314dd9b774c3ea723dc745974d56d8ede40"
+    },
+    {
+      "path": "code/Sub_use_fig.ipynb",
+      "git_blob_id": "2c2f510f0841d19393cbb5f47265149cf16e48b1"
+    },
+    {
+      "path": "code/essentialGenes.m",
+      "git_blob_id": "75a461c4ada0293015ece5371e4d4b4d1e35ae2e"
+    },
+    {
+      "path": "code/gene_screen.m",
+      "git_blob_id": "4d91dd38fd3b7ab4515d41bd6f923a0db9ff09c1"
+    },
+    {
+      "path": "code/gene_sup.m",
+      "git_blob_id": "5f0b78c7326b20c32fad9fd3bd07db53b225b167"
+    },
+    {
+      "path": "code/yeast9_curated_sub_use.xlsx",
+      "git_blob_id": "6b4dc0a8bed668a6163ec4b3e1a92e367c3238aa"
+    },
+    {
+      "path": "code/yeast9_sub_use.xlsx",
+      "git_blob_id": "c5e57adeef45442e21981eafe65cef9c7882f368"
+    },
+    {
+      "path": "model/Yeast9/dependencies.txt",
+      "git_blob_id": "d22a32b45a8b313a61219ae5188dfe3e7af048d5"
+    },
+    {
+      "path": "model/Yeast9/yeast-GEM.mat",
+      "git_blob_id": "284dbf33b48dde2db037e8d04fafb8baa422bc4e"
+    },
+    {
+      "path": "model/Yeast9/yeast-GEM.txt",
+      "git_blob_id": "d84e9078a3af7c479ba4a927813bf12a1ed744ab"
+    },
+    {
+      "path": "model/Yeast9/yeast-GEM.xlsx",
+      "git_blob_id": "0337312cbd09c720781de882256a47b9ae783189"
+    },
+    {
+      "path": "model/Yeast9/yeast-GEM.xml",
+      "git_blob_id": "17713366641f750f115abbd6d15100f94e58da47"
+    },
+    {
+      "path": "model/Yeast9/yeast-GEM.yml",
+      "git_blob_id": "3eecd04ee08f827c9a5774633e0bee29a1acca43"
+    },
+    {
+      "path": "model/Yeast9/yeast9.0.xml",
+      "git_blob_id": "17713366641f750f115abbd6d15100f94e58da47"
+    },
+    {
+      "path": "model/Yeast9_curated.mat",
+      "git_blob_id": "fc1b1d98523cf78cccfbb0814de6cd55823f248a"
+    },
+    {
+      "path": "model/Yeast9_curated.xml",
+      "git_blob_id": "de4c2dd01d06fb144c5a1f9d464a8b474588fdff"
+    }
+  ],
+  "repository_api_limit": "Root metadata request rate-limited; commit/history/recursive trees and raw files succeeded",
+  "redistribution": "No full paper, supplemental PDF/workbook, author code or author model added by R-011; only citations, source hashes and extracted factual labels. Existing project input files unchanged.",
+  "model_byte_identity": [
+    {
+      "project_path": "data/raw/yeast9.0.xml",
+      "upstream_path": "model/Yeast9/yeast9.0.xml",
+      "sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5",
+      "git_blob_id": "17713366641f750f115abbd6d15100f94e58da47",
+      "upstream_git_blob_id": "17713366641f750f115abbd6d15100f94e58da47",
+      "byte_identity": true
+    },
+    {
+      "project_path": "data/raw/Yeast9_curated.xml",
+      "upstream_path": "model/Yeast9_curated.xml",
+      "sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af",
+      "git_blob_id": "de4c2dd01d06fb144c5a1f9d464a8b474588fdff",
+      "upstream_git_blob_id": "de4c2dd01d06fb144c5a1f9d464a8b474588fdff",
+      "byte_identity": true
+    }
+  ],
+  "visual_analysis_runtime": "Windows primary-source tools plus read-only Linux pdftoppm rendering of supplementary vector graph; no scientific simulation in either environment.",
+  "partial_graph_scope": "41 clear Fig.4 edges transcribed; central crossed block and S2 not fully digitized. Absence of an extracted edge is never interpreted as a negative prediction."
+}

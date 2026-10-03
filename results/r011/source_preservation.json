@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-03T01:49:36.506430+00:00",
+  "worktrees": [
+    {
+      "worktree": "C:\\Users\\pc\\Documents\\auxoyeast\\auxoyeast-repro",
+      "head_before": "929942bcfefbef69806e28d95451261d4401b87f",
+      "head_after": "929942bcfefbef69806e28d95451261d4401b87f",
+      "status_unchanged": true,
+      "tracked_files_checked": 29,
+      "changed_bytes": [],
+      "passed": true
+    },
+    {
+      "worktree": "C:\\Users\\pc\\Documents\\auxoyeast\\auxoyeast-v058-yeast9",
+      "head_before": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+      "head_after": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+      "status_unchanged": true,
+      "tracked_files_checked": 29,
+      "changed_bytes": [],
+      "passed": true
+    },
+    {
+      "worktree": "C:\\Users\\pc\\Documents\\auxoyeast\\auxoyeast-v058-curated",
+      "head_before": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+      "head_after": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+      "status_unchanged": true,
+      "tracked_files_checked": 29,
+      "changed_bytes": [],
+      "passed": true
+    },
+    {
+      "worktree": "C:\\Users\\pc\\Documents\\auxoyeast\\auxoyeast-v058-results-review",
+      "head_before": "c9fa31f6e20c9d39f3c826c124dc9aa14f399040",
+      "head_after": "c9fa31f6e20c9d39f3c826c124dc9aa14f399040",
+      "status_unchanged": true,
+      "tracked_files_checked": 42,
+      "changed_bytes": [],
+      "passed": true
+    }
+  ],
+  "scientific_source_artifacts": [
+    {
+      "worktree": "auxoyeast-v058-yeast9",
+      "path": "results/02_Yeast9_pair_results.csv",
+      "sha256": "1d0ef6d0a824f5b538f596bf24098daa23304c222ad52cc156846ea577e28ba9",
+      "equal_accepted_bytes": true
+    },
+    {
+      "worktree": "auxoyeast-v058-yeast9",
+      "path": "results/02_Yeast9_pair_results.meta.json",
+      "sha256": "ade853a36ad5e956caf6bfe86b8acdbae2a1d0c5df3436bd8e3c671ec823928b",
+      "equal_accepted_bytes": true
+    },
+    {
+      "worktree": "auxoyeast-v058-curated",
+      "path": "results/02_Yeast9_curated_pair_results.csv",
+      "sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f",
+      "equal_accepted_bytes": true
+    },
+    {
+      "worktree": "auxoyeast-v058-curated",
+      "path": "results/02_Yeast9_curated_pair_results.meta.json",
+      "sha256": "9d9ee26f2548616ff325b44e43e79efbff568e5369cc152c246a96d68ae94b4a",
+      "equal_accepted_bytes": true
+    }
+  ],
+  "prior_snapshot_sha256": "b77248a060c4438fac19d608d1e15c4285287dad8d6ef97fd4289821e2e858c9",
+  "scope": "Tracked files, exact HEAD/status, and scientific CSV/sidecar bytes; ignored source caches were not written by R-011."
+}
