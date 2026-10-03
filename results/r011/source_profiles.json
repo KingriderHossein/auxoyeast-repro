@@ -1,0 +1,87 @@
+[
+  {
+    "file": "mmc2.xlsx",
+    "sheet": "Sheet1",
+    "max_row": 681,
+    "max_column": 9,
+    "nonempty_data_rows": 657,
+    "headers": [
+      "Gene",
+      "Gene Systematic Name",
+      "Experiment Type",
+      "Experiment Type Category",
+      "Mutant Information",
+      "Strain Background",
+      "Chemical",
+      "Details",
+      "Reference"
+    ]
+  },
+  {
+    "file": "mmc3.xlsx",
+    "sheet": "all",
+    "max_row": 148,
+    "max_column": 6,
+    "nonempty_data_rows": 147,
+    "headers": [
+      "Gene Systematic Name",
+      "Chemical",
+      "exchange",
+      "ID",
+      "Strain Background",
+      "Reference"
+    ]
+  },
+  {
+    "file": "mmc3.xlsx",
+    "sheet": "amino acid",
+    "max_row": 74,
+    "max_column": 4,
+    "nonempty_data_rows": 73,
+    "headers": [
+      "Gene Systematic Name",
+      "Chemical",
+      "exchange",
+      "ID"
+    ]
+  },
+  {
+    "file": "mmc3.xlsx",
+    "sheet": "vitamin",
+    "max_row": 29,
+    "max_column": 4,
+    "nonempty_data_rows": 28,
+    "headers": [
+      "Gene Systematic Name",
+      "Chemical",
+      "exchange",
+      "ID"
+    ]
+  },
+  {
+    "file": "mmc3.xlsx",
+    "sheet": "nitrogenous base",
+    "max_row": 15,
+    "max_column": 4,
+    "nonempty_data_rows": 14,
+    "headers": [
+      "Gene Systematic Name",
+      "Chemical",
+      "exchange",
+      "ID"
+    ]
+  },
+  {
+    "file": "mmc3.xlsx",
+    "sheet": "other",
+    "max_row": 33,
+    "max_column": 4,
+    "nonempty_data_rows": 32,
+    "headers": [
+      "Gene Systematic Name",
+      "Chemical",
+      "exchange",
+      "ID"
+    ]
+  }
+]

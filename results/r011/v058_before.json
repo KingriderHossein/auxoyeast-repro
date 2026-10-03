@@ -1,0 +1,28 @@
+{
+  "verifier_version": "1.0.0",
+  "revision": "working_tree",
+  "passed": true,
+  "check_count": 1961,
+  "counts": {
+    "Yeast9": {
+      "correct": 92,
+      "type_I": 37,
+      "type_II": 18,
+      "solver_error": 0,
+      "input_error": 0
+    },
+    "Yeast9_curated": {
+      "correct": 116,
+      "type_I": 28,
+      "type_II": 3,
+      "solver_error": 0,
+      "input_error": 0
+    }
+  },
+  "comparison_counts": {
+    "unchanged": 119,
+    "fixed": 26,
+    "regression": 2
+  },
+  "artifact_count": 16
+}

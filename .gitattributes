@@ -22,3 +22,10 @@ scripts/validate_v058_artifacts_v1.py -text
 scripts/finalize_v058_results_v1.py -text
 scripts/verify_v058_persisted_artifacts_v1.py -text
 results/02_v058_artifact_index.json -text
+
+# Exact R-011 analytical output bytes, scoped to this assignment.
+results/r011/*.csv -text
+results/r011/*.json -text
+notebooks/02b_r011_reference_reconciliation.ipynb -text
+scripts/r011_audit_tools_v1.py -text
+docs/r011_reference_reconciliation.md -text

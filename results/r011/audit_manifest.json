@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "assignment_id": "9-r1-g1-r011-reference-20261003-a6f29c8d",
+  "base_sha": "3ca66b4c119d8968c1ede7769125ef8b3a44fc61",
+  "scientific_execution_sha": "feaabea5d4408d14f15aee47da5399f5d2130be8",
+  "notebook_code_sha256": "277e9ea79287092d1871304d8eee579ebbde9b230c8ddef90c41c39041a2f000",
+  "fixed_inputs": [
+    {
+      "path": "data/raw/mmc3.xlsx",
+      "bytes": 28226,
+      "sha256": "f2cce831331c02b01d734e2867c94063e4d3522ddd018f28314c40830935c9ab"
+    },
+    {
+      "path": "data/raw/yeast9.0.xml",
+      "bytes": 11776690,
+      "sha256": "0e120b0d4015048ef2edaf86ea039c533a72827ff00a34ca35d9fbe87a2781e5"
+    },
+    {
+      "path": "data/raw/Yeast9_curated.xml",
+      "bytes": 11185345,
+      "sha256": "d0bd57f6ec99b8fb1f0ffeb7006ba88a879a9185100236249d6e4bae333a82af"
+    },
+    {
+      "path": "results/02_v058_artifact_index.json",
+      "bytes": 3069,
+      "sha256": "6256147749f14e6d6926900a6655b7b449bd699661bfb6cbbea28338e2f64ec8"
+    },
+    {
+      "path": "results/02_Yeast9_pair_results.csv",
+      "bytes": 91086,
+      "sha256": "1d0ef6d0a824f5b538f596bf24098daa23304c222ad52cc156846ea577e28ba9"
+    },
+    {
+      "path": "results/02_Yeast9_pair_results.meta.json",
+      "bytes": 1471,
+      "sha256": "ade853a36ad5e956caf6bfe86b8acdbae2a1d0c5df3436bd8e3c671ec823928b"
+    },
+    {
+      "path": "results/02_Yeast9_curated_pair_results.csv",
+      "bytes": 93864,
+      "sha256": "8ae502bc3c25b65babcd89cbd1ba9464a6455251fd5e2ef40ec018e7462bac3f"
+    },
+    {
+      "path": "results/02_Yeast9_curated_pair_results.meta.json",
+      "bytes": 1487,
+      "sha256": "9d9ee26f2548616ff325b44e43e79efbff568e5369cc152c246a96d68ae94b4a"
+    },
+    {
+      "path": "results/02_pairwise_comparison.csv",
+      "bytes": 185502,
+      "sha256": "313aadd35918bd25852c19356c40dcf109d8bdebd7c53a13ba8f5bd5fc7b92d8"
+    },
+    {
+      "path": "results/02_run_manifest.json",
+      "bytes": 2306,
+      "sha256": "99c1a4592e5336773d933e2e8323651967b09f57ec54d2ca3d20fdb536bfab3e"
+    },
+    {
+      "path": "scripts/json_pair_worker.py",
+      "bytes": 8124,
+      "sha256": "50af7194a156d83730f3d719229e4af1df540fe304edd3a8d05e98fbf69e5741"
+    }
+  ],
+  "files": [
+    {
+      "path": "results/r011/aggregate_comparison.csv",
+      "bytes": 700,
+      "sha256": "7ff2abc1fcc6bea8322750e732fca5883e9c31ddf28462f5d71d557953116ef1"
+    },
+    {
+      "path": "results/r011/coverage_summary.csv",
+      "bytes": 210,
+      "sha256": "27cd969100fc624e34f42ae029626537216e1487802eb9ff5a4f8a6f0a2f44ca"
+    },
+    {
+      "path": "results/r011/focus_pairs.csv",
+      "bytes": 5551,
+      "sha256": "45fdbafff95d39f23e9c738d6b26015fd10f6a23d5d80c1b4a1a90f5fad243d2"
+    },
+    {
+      "path": "results/r011/join_validation.json",
+      "bytes": 444,
+      "sha256": "d749215762f915793ba03651114b4e04aefb440c1cabc8cc443fed78f944e6c2"
+    },
+    {
+      "path": "results/r011/pair_crosswalk.csv",
+      "bytes": 151055,
+      "sha256": "8861dfaaea3c25b1085cc83a9412087324797884c0cb220328b8c50054647efb"
+    },
+    {
+      "path": "results/r011/protocol_comparison.csv",
+      "bytes": 5886,
+      "sha256": "b3762332a3158fbdb130736a5651af6d5ab40bcb0395b73a261f999bf87eab18"
+    },
+    {
+      "path": "results/r011/protocol_evidence.json",
+      "bytes": 7466,
+      "sha256": "dbd8ea94354d0d851eb806760d01609b6d65df85133af9c615a73a8981822965"
+    },
+    {
+      "path": "results/r011/reference_records.json",
+      "bytes": 41104,
+      "sha256": "03e13d705952ef2cb08f2f3127f360f83269047b60964959b31af428fd298508"
+    },
+    {
+      "path": "results/r011/source_preservation.json",
+      "bytes": 2648,
+      "sha256": "90f975fa65b2b77b9f6773e4c3d614a07f7f8af5bd479f942170b40c663fec0e"
+    },
+    {
+      "path": "results/r011/source_profiles.json",
+      "bytes": 1560,
+      "sha256": "d7502c59896448f916fecd0cb8b78d56cef0e765d7bbf08d7b5ccc1aec66e6b7"
+    },
+    {
+      "path": "results/r011/source_registry.json",
+      "bytes": 16269,
+      "sha256": "fc85839bbfd97d1768682db72c31e8feea5055b061e3d10b5ced23f2436d3c66"
+    },
+    {
+      "path": "results/r011/static_model_context.json",
+      "bytes": 1610,
+      "sha256": "2f227185e0b5a212aed786b8dc81389f96f4916f96afbf1f5b7c44ac25856e4f"
+    },
+    {
+      "path": "results/r011/unmatched_and_multiple.json",
+      "bytes": 9026,
+      "sha256": "4f9f08419c32399cb9cef70cfe0ff21bc1a294bde646a411eda1c7bbd99f4e1b"
+    },
+    {
+      "path": "results/r011/v058_after.json",
+      "bytes": 510,
+      "sha256": "e90aa297cfa0c691660219eaabe1138badd83b66def3b1494b38f059db75b290"
+    },
+    {
+      "path": "results/r011/v058_before.json",
+      "bytes": 510,
+      "sha256": "e90aa297cfa0c691660219eaabe1138badd83b66def3b1494b38f059db75b290"
+    },
+    {
+      "path": "scripts/r011_audit_tools_v1.py",
+      "bytes": 21372,
+      "sha256": "e708a392b06376b48fc86ad268dbc4a7487305996ae4a921abae17cf545b81e4"
+    },
+    {
+      "path": "notebooks/02b_r011_reference_reconciliation.ipynb",
+      "bytes": 31747,
+      "sha256": "5c31530fea455e3fb41789cd401980518877493a0797225691852099202cfeb4"
+    },
+    {
+      "path": "docs/r011_reference_reconciliation.md",
+      "bytes": 7758,
+      "sha256": "c14344b91c788fe94312cd07b8f8e671de45a81c18a289c618bf86a7448367be"
+    },
+    {
+      "path": "docs/reproducibility_log.md",
+      "bytes": 33045,
+      "sha256": "e1b47590debc9ab5ec57225308129c4073879b398fbab084d10859f9fb497ca2"
+    }
+  ],
+  "exclusions": [
+    "audit_manifest.json (self-reference)",
+    "validation_report.json (generated by manifest verifier)"
+  ],
+  "note": "All SHA-256 values hash real file bytes. Manifest and validation report are separately checked local/index/candidate/fetched remote. No Git blob ID substitutes for SHA-256.",
+  "original_notebook_identity": "Legacy notebooks are not analytical numerical inputs. Exact Git revision bytes and clean canonical checkout comparisons are separately checked; protected source-worktree raw bytes are snapshotted."
+}

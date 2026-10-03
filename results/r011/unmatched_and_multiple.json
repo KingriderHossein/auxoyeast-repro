@@ -1,0 +1,265 @@
+{
+  "unmatched_reference_records": [
+    {
+      "reference_id": "FIG4-LYS4-lysine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YDR234W"
+      ],
+      "rescue_ids": [
+        "r_1900"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible LYS4 -> L-lysine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-LYS12-lysine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YIL094C"
+      ],
+      "rescue_ids": [
+        "r_1900"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible LYS12 -> L-lysine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-LYS9-lysine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YNR050C"
+      ],
+      "rescue_ids": [
+        "r_1900"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible LYS9 -> L-lysine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-TYR1-tyrosine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YBR166C"
+      ],
+      "rescue_ids": [
+        "r_1913"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible TYR1 -> L-tyrosine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-ARG8-arginine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YOL140W"
+      ],
+      "rescue_ids": [
+        "r_1879"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible ARG8 -> L-arginine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-ORT1-arginine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YOR130C"
+      ],
+      "rescue_ids": [
+        "r_1879"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible ORT1 -> L-arginine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-AAT2-asparagine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YLR027C"
+      ],
+      "rescue_ids": [
+        "r_1880"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible AAT2 -> L-asparagine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-BAT1-valine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YHR208W"
+      ],
+      "rescue_ids": [
+        "r_1914"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible BAT1 -> L-valine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-PHA2-phenylalanine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YNL316C"
+      ],
+      "rescue_ids": [
+        "r_1903"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible PHA2 -> L-phenylalanine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    },
+    {
+      "reference_id": "FIG4-BAT2-leucine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YJR148W"
+      ],
+      "rescue_ids": [
+        "r_1899"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible BAT2 -> L-leucine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "mapping_status": "no_complete_current_identity_candidate"
+    }
+  ],
+  "mapped_not_selected_reference_records": [
+    {
+      "reference_id": "FIG4-AAT2-aspartate",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YLR027C"
+      ],
+      "rescue_ids": [
+        "r_1881"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible AAT2 -> L-aspartate edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "candidate_pair_ids": [
+        "excel:8"
+      ],
+      "mapping_status": "benchmark_text_preferred_over_systematic_graph"
+    },
+    {
+      "reference_id": "FIG4-MET13-methionine",
+      "model": "Yeast9_curated",
+      "genes": [
+        "YGL125W"
+      ],
+      "rescue_ids": [
+        "r_1902"
+      ],
+      "background_ids": null,
+      "scope": "systematic",
+      "kind": "systematic_positive_edge",
+      "raw_label": "positive auxotrophy edge",
+      "label_semantics": "systematic_positive_prediction",
+      "source_id": "FIG4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11704421/#fig4",
+      "locator": "Figure 4, visible MET13 -> L-methionine edge",
+      "extraction": "manual visual; background and exact benchmark run not supplied",
+      "candidate_pair_ids": [
+        "excel:28"
+      ],
+      "mapping_status": "benchmark_text_preferred_over_systematic_graph"
+    }
+  ],
+  "multiple_or_ambiguous_current_rows": [
+    {
+      "model": "Yeast9",
+      "pair_id": "excel:78",
+      "reference_ids": "T1-02",
+      "comparability": "ambiguous"
+    }
+  ],
+  "unextracted_visual_scope": [
+    "Fig. 4 central crossed MET/TRR1 block",
+    "Fig. S2 full graph"
+  ],
+  "note": "Unmatched references and unextracted graph edges are not negative author predictions."
+}

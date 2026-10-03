@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "missing_reference": true,
+    "full_multigene_condition": true,
+    "single_gene_not_joint_knockout": true,
+    "different_background": true,
+    "unspecified_background": true,
+    "different_rescue": true,
+    "ambiguous_duplicate_mapping": true,
+    "conflicting_labels": true,
+    "different_label_semantics": true,
+    "inaccessible_reference": true,
+    "systematic_graph_not_benchmark": true
+  }
+}

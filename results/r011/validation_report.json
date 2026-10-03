@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "revision": "working_tree",
+  "passed": true,
+  "check_count": 441,
+  "reference_records": 67,
+  "summary": [
+    {
+      "model": "Yeast9",
+      "total": 147,
+      "comparable_qualitative": 21,
+      "matches": 20,
+      "mismatches": 1,
+      "unknown": 126,
+      "not_reported": 123,
+      "unavailable": 0,
+      "ambiguous": 1,
+      "not_comparable": 2,
+      "exact_run_comparable": 0
+    },
+    {
+      "model": "Yeast9_curated",
+      "total": 147,
+      "comparable_qualitative": 2,
+      "matches": 2,
+      "mismatches": 0,
+      "unknown": 145,
+      "not_reported": 116,
+      "unavailable": 0,
+      "ambiguous": 0,
+      "not_comparable": 29,
+      "exact_run_comparable": 0
+    }
+  ],
+  "join_tests": {
+    "missing_reference": true,
+    "full_multigene_condition": true,
+    "single_gene_not_joint_knockout": true,
+    "different_background": true,
+    "unspecified_background": true,
+    "different_rescue": true,
+    "ambiguous_duplicate_mapping": true,
+    "conflicting_labels": true,
+    "different_label_semantics": true,
+    "inaccessible_reference": true,
+    "systematic_graph_not_benchmark": true
+  },
+  "original_source_comparison": "Exact Git bytes for revisions; local legacy CRLF notebooks require exact LF canonical bytes plus clean Git diff. Protected source-worktree raw bytes are independently snapshotted.",
+  "commands": [
+    {
+      "command": "python -B scripts/verify_v058_persisted_artifacts_v1.py",
+      "phase": "before",
+      "status": "PASS"
+    },
+    {
+      "command": "python -B scripts/verify_v058_persisted_artifacts_v1.py",
+      "phase": "after",
+      "status": "PASS"
+    },
+    {
+      "command": "python -B scripts/r011_audit_tools_v1.py --execute-notebook",
+      "status": "PASS",
+      "note": "Direct Python execution; targeted refreshes recorded in notebook metadata"
+    },
+    {
+      "command": "python -B scripts/r011_audit_tools_v1.py",
+      "status": "PASS"
+    }
+  ],
+  "preliminary_diagnostic": {
+    "check": "Raw local legacy Notebook 01 versus Git LF blob",
+    "result": "FAIL",
+    "resolved": true,
+    "reason": "Pre-existing core.autocrlf checkout CRLF, with clean Git diff; exact canonical bytes confirmed. No original notebook or Git global setting changed."
+  },
+  "not_run": [
+    "benchmark/FBA/optimization/author simulations",
+    "Jupyter-kernel run",
+    "sensitivity experiments",
+    "CI",
+    "exhaustive Fig.4 central-block/Fig.S2 edge digitization",
+    "author contact",
+    "timeout-suspension reinvestigation"
+  ],
+  "revision_checks": "Exact candidate and fetched remote checks reported at PR/Issue, without embedding a self-referential commit hash."
+}
